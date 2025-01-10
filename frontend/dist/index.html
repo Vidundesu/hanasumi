@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="style.css">
+    <script >
+        $(document).ready(function () {
+    $("#navbar-placeholder").load("nav.html", function () {
+        console.log("Navbar loaded successfully.");
+    });
+});
+    </script>
+    <script>
+        setInterval(background, 10000);
+         function background() {
+            let image = ["background/bg1.jpg", "background/bg2.jpg", "background/bg3.jpg", "background/bg4.jpg","background/bg5.jpg","background/bg7.jpg","background/bg8.jpg"];
+             let text = [
+                 "A Symphony of Luxury in Every Petal.",
+                 "Where Luxury and Nature Embrace.",
+                 "Captivating Hearts, One Petal at a Time.",
+                 "Where Luxury and Blooms Converge.",
+                 "A Gallery of Luxurious Floral Inspirations.",
+                 "Where Luxury Finds its Fragrant Expression.",
+                 "Unveiled Petal by Petal.",
+                 "Where Blooms Reign Supreme.",
+                 "Crafting Luxury Through Nature's Beauty.",
+                 "Where Luxury Resides Amongst Exquisite Petals and Fragrance.",
+                 
+             ];
+             let random = Math.floor(Math.random() * text.length); 
+            document.getElementById("home").style.backgroundImage = "url("+ image[random] +")";
+             document.getElementById("box-text").innerHTML=text[random];
+         }
+     </script>
+</head>
+<body>
+    <div class="h-75dvh w-full">
+        <div id="home" class="">
+            <div id="box" class="h-3/4 w-3/12 flex ml-12 justify-center items-center bg-orange-500 rounded-2xl">
+                <span id="box-text" class="font-quicksand text-caption"> Where Luxury and Nature Embrace.</span>
+            </div>
+        </div>
+    </div>
+    <div id="navbar-placeholder" class="sticky top-0 "></div>
+    <div class="h-dvh w-full flex justify-center items-center">
+        <div id="product-home-list" class="h-5/6 w-8/12 grid grid-cols-4 max-md:grid-cols-2 justify-center items-center gap-4">
+           <div class="max-md:h-80 bg-pink">
+                <img src="pics/cake.jpg" alt="" class=" object-cover h-full w-full">
+           </div>          
+           <div class="max-md:h-80 bg-pink">
+            <img src="pics/bunch.jpg" alt="" class="object-cover h-full w-full">
+           </div>   
+           <div class="max-md:h-80 bg-pink">
+            <img src="pics/wedding.jpg" alt="" class="object-cover h-full w-full">
+           </div>   
+           <div class="max-md:h-80 bg-pink">
+            <img src="pics/offer.jpg" alt="" class="object-cover h-full w-full">
+           </div>    
+        </div>
+    </div>
+    
+        
+    <div id="about-us" class="h-half w-full relative flex justify-center">
+               
+        <div class="h-full w-8/12 absolute flex flex-col justify-center items-center ">
+            <h1 class="font-poppins heading font-semibold">HanaSumi</h1>
+            <h2 class="font-yeseva font-bold italic font-pink">-The Flower Haze-</h2>
+            <div id="about-text" class="mt-8 w-5/6">
+                <span class="font-yeseva italic ">With a heritage of over two decades, HanaSumi presents a collection of premium greenhouse-grown flowers that epitomize botanical elegance. Each blossom is a testament to our dedication to crafting nature's finest, meeting diverse floral needs with a touch of luxury.</span>
+            </div>
+        </div>
+        <div id="animation" class="absolute w-full">
+            <div>
+                <img src="animation/sakuraalarge.svg">
+            </div>
+            <div>
+                <img src="animation/sakuraalarge.svg">
+            </div>
+            <div>
+                <img src="animation/sakuraalarge.svg">
+            </div>
+            <div>
+                <img src="animation/sakuraalarge.svg">
+            </div>
+            <div>
+                <img src="animation/sakuraalarge.svg">
+            </div>
+            <div>
+                <img src="animation/sakuraalarge.svg">
+            </div>
+            <div>
+                <img src="animation/cherry-blossom-svgrepo-com.svg" style="width: 5%;">
+            </div>
+        </div>   
+    </div>
+    <div class="w-full h-75dvh flex justify-center">
+        <div class="w-10/12 h-full flex justify-evenly items-center bg-lightPink max-md:flex-col">    
+            <div class="w-4/12 max-md:w-8/12 h-5/6 flex flex-col justify-center">
+                <span class="material-symbols-outlined">local_shipping</span>
+                <h2 class="font-quicksand font-bold sub-heading">Fast and Reliable Delivery</h2>
+                <span class="font-lora">We offer fast and reliable delivery services. Your flowers will be delivered to your doorstep with care and precision.</span>
+            </div>
+            <div class="w-4/12 max-md:w-8/12 h-5/6 flex flex-col justify-center">
+                <span class="material-symbols-outlined">place_item</span>
+                <h2 class="font-quicksand font-bold sub-heading">Refunds</h2>
+                <span class="font-lora">We offer a hassle-free refund policy for any damaged or unsatisfactory products/ Please contact our customer service within 7 days of receiving your order for assistance</span>
+            </div>
+        </div>
+    </div>
+    <div id="detail-container" class="h-75dvh m-4 p-8 w-full overflow-hidden">
+        <div id="detail-items" class="flex justify-evenly h-full items-center">
+            <!-- Detail Text Section -->
+            <div id="detail-text" class="p-8 w-1/2 max-md:w-4/6">
+                <h2 class="heading text-gray-900 text-center font-kaisei">
+                    生け花 (ikebana)
+                </h2>
+                <h5 class="text-[#d42583] italic text-center font-light font-yeseva">
+                    -Flower Arrangement-
+                </h5>
+                <div class="detail-para p-5 mt-2">
+                    <h3 class="sub-heading font-bold">Discover the Beauty of Japanese Floral Art</h3>
+                    <span class="block mt-2 caption text-gray-700">
+                        Immerse yourself in the mesmerizing world of Japanese floral art. Our
+                        exquisite collection of handcrafted floral arrangements captures the essence
+                        of hanaSumi, The Flower Haze. Each arrangement is meticulously crafted to
+                        bring beauty and tranquility to your space. Explore our online store and
+                        discover the perfect floral masterpiece for any occasion.
+                    </span>
+                </div>
+            </div>
+    
+            <!-- Divider -->
+            <div class="divider w-[2px] h-5/6 bg-gray-300"></div>
+    
+            <!-- Slider Section -->
+            <div class="slider flex justify-center">
+                <div class="slider__row gap-4" id="row">
+                  <div class="row__item"><img src="detail/detail7.jpg" class="object-cover"></div>
+                  <div class="row__item"><img src="detail/detail3.jpg"class="object-cover"></div>
+                  <div class="row__item"><img src="detail/detail4.jpg"class="object-cover"></div>
+                  <div class="row__item"><img src="detail/detail2.jpg"class="object-cover"></div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    var toTop = 0;
+    function autoPlay(){
+    timer = setTimeout(function(){
+        var row = document.getElementById('row');
+        toTop = toTop - 128;
+        if (toTop < -1152){
+        toTop = 0;
+        clearTimeout(timer);
+        row.onmouseover = clearTimeout(timer);
+        }
+    row.style.top = toTop +'px';
+    autoPlay();
+    }, 3000);
+    }
+    autoPlay();
+
+</script>
+</html>
