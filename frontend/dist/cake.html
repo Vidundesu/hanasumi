@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cakes - The Flower Haze</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+    <script src="./index.js"></script>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        // JSON data representing the cake products
+        const cakeProducts = {
+            "products": [
+                {
+                    "name": "Black Chocolate & Peach Glazed",
+                    "image": "cakes/cake5.jpg",
+                    "price": "Rs. 7200.00",
+                    "description": "Experience the captivating dance between deep, dark chocolate and the gentle allure of peach glaze. Our Black Chocolate & Peach Glazed cake is a study in contrasts, where the bittersweet meets the delicate, creating a delightful harmony of taste and texture."
+                },
+                {
+                    "name": "Chocolate Swiss Roll with Buttercream & Ganache",
+                    "image": "cakes/cake2.jpg",
+                    "price": "Rs. 6800.00",
+                    "description": "Unwrap the allure of velvety chocolate in our Swiss Roll masterpiece. A tender chocolate sponge embraces luscious layers of buttercream and a rich ganache drizzle. An indulgence that unveils layers of comfort and decadence."
+                },
+                {
+                    "name": "Watermelons & Fruity Lovers",
+                    "image": "cakes/cake3.jpg",
+                    "price": "Rs. 3500.00",
+                    "description": "Dive into a refreshing oasis of sweetness with our Watermelons & Fruity Lovers cake. Bursting with the juiciness of ripe watermelons and a medley of vibrant fruits, this creation is a vibrant symphony of summer's finest offerings."
+                },
+                {
+                    "name": "Dates & Cherries with Sugar Coating",
+                    "image": "cakes/cake4.jpg",
+                    "price": "Rs. 12,800.00",
+                    "description": "A harmonious blend of succulent dates and tart cherries, adorned with a delicate sugar coating. This cake whispers of warmth and nostalgia, offering a delightful balance of flavors that will transport you to cherished moments."
+                }
+            ]
+        };
+    
+        // Function to fetch and display products
+        function renderProducts() {
+            const container = document.getElementById("products");
+            
+            // Loop through the products and generate HTML for each
+            cakeProducts.products.forEach(product => {
+                const productHTML = `
+                    <div class="item1 relative w-[300px] transition -z-50 duration-1000">
+                        <img src="${product.image}" class="item w-[300px] h-[300px] object-cover">
+                        <hr>
+                        <div id="text-product" class="">
+                            <h1 class="font-lora mt-4" style="font-size: clamp(1rem, 2vw, 3rem);">${product.name}</h1>
+                        </div>
+                        <hr>
+                        <div class="mt-4 w-full flex flex-row justify-between items-center">
+                            <span id="price" class="font-poppins caption">${product.price}</span>
+                            <div class="flex flex-row gap-4">
+                                <span class="font-quicksand text-sm text-brightPink">1</span>
+                                <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 dark:border-brightPink dark:hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-2.5 h-2.5 dark:text-gray-200 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                    </svg>
+                                </button>
+                                <span class="material-symbols-outlined ml-4">
+                                    shopping_bag
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                // Append the product's HTML to the container
+                container.insertAdjacentHTML("beforeend", productHTML);
+            });
+        }
+    
+        // Wait for the DOM to load before calling renderProducts
+        document.addEventListener("DOMContentLoaded", renderProducts);
+    </script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_bag" />
+    <style>
+        #cake-home {
+            background-image: url(flower-background/cake-back.jpg);
+            background-size: cover;
+            background-position-y: 70%;
+        }
+    </style>
+</head>
+<body>
+    <div id="cake-home" class="flex items-center justify-center w-full h-[50vh] m-0">
+        <div id="home-text" class="backdrop-brightness-150 text-white bg-[#d42583] bg-opacity-55 p-12 rounded">
+            <h1 class="font-poppins tracking-widest">CAKES</h1>
+        </div>
+    </div>
+    <div id="navbar-placeholder" class="sticky  top-0"></div>
+    <div id="text" class="flex justify-center w-full">
+        <div id="product-idea" class="text-center max-w-[70%] mt-4 p-8">
+            <span class="font-lora caption">Indulge in a symphony of flavors and artistry with our exquisite collection of handcrafted cakes. Each creation is a masterpiece, meticulously crafted to elevate your senses and celebrate life's most cherished moments.<span class=" text-pink font-lora"> Our cakes are a fusion of exceptional ingredients, innovative techniques, and a passion for perfection, resulting in a sensory journey that delights both the palate and the soul.</span> Elevate your moments with our sumptuous cakes, where every bite tells a story of opulence, passion, and the pursuit of culinary perfection. Welcome to a world where taste meets artistry, and every cake is a testament to the extraordinary.</span>
+        </div>
+    </div>
+    <main id="cake-products" class="flex justify-center w-full"> 
+        <div id="products" class="flex flex-wrap justify-center gap-8 p-12 mb-8"></div>
+    </main>
+</body>
+</html>

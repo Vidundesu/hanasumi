@@ -8,14 +8,8 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="style.css">
-    <script >
-        $(document).ready(function () {
-    $("#navbar-placeholder").load("nav.html", function () {
-        console.log("Navbar loaded successfully.");
-    });
-});
-    </script>
+    <link rel="stylesheet" href="./style.css">
+    <script src="index.js"></script>
     <script>
         setInterval(background, 10000);
          function background() {
@@ -41,14 +35,14 @@
 </head>
 <body>
     <div class="h-75dvh w-full">
-        <div id="home" class="">
-            <div id="box" class="h-3/4 w-3/12 flex ml-12 justify-center items-center bg-orange-500 rounded-2xl">
-                <span id="box-text" class="font-quicksand text-caption"> Where Luxury and Nature Embrace.</span>
+        <div id="home" class="flex max-md:justify-center">
+            <div id="box" class="h-3/4 max-md:h-2/4 w-3/12 max-md:w-6/12 flex ml-12 max-md:ml-0 justify-center items-center bg-lightPink p-4 rounded-2xl">
+                <span id="box-text" class="font-lora sub-heading text-caption text-center"> Where Luxury and Nature Embrace.</span>
             </div>
         </div>
     </div>
-    <div id="navbar-placeholder" class="sticky top-0 "></div>
-    <div class="h-dvh w-full flex justify-center items-center">
+    <div id="navbar-placeholder" class="sticky z-50 top-0 "></div>
+    <section class="h-dvh w-full flex justify-center items-center">
         <div id="product-home-list" class="h-5/6 w-8/12 grid grid-cols-4 max-md:grid-cols-2 justify-center items-center gap-4">
            <div class="max-md:h-80 bg-pink">
                 <img src="pics/cake.jpg" alt="" class=" object-cover h-full w-full">
@@ -63,10 +57,10 @@
             <img src="pics/offer.jpg" alt="" class="object-cover h-full w-full">
            </div>    
         </div>
-    </div>
+    </section>
     
         
-    <div id="about-us" class="h-half w-full relative flex justify-center">
+    <section id="about-us" class="h-half w-full relative flex justify-center">
                
         <div class="h-full w-8/12 absolute flex flex-col justify-center items-center ">
             <h1 class="font-poppins heading font-semibold">HanaSumi</h1>
@@ -98,8 +92,8 @@
                 <img src="animation/cherry-blossom-svgrepo-com.svg" style="width: 5%;">
             </div>
         </div>   
-    </div>
-    <div class="w-full h-75dvh flex justify-center">
+    </section>
+    <section class="w-full h-75dvh flex justify-center">
         <div class="w-10/12 h-full flex justify-evenly items-center bg-lightPink max-md:flex-col">    
             <div class="w-4/12 max-md:w-8/12 h-5/6 flex flex-col justify-center">
                 <span class="material-symbols-outlined">local_shipping</span>
@@ -112,8 +106,8 @@
                 <span class="font-lora">We offer a hassle-free refund policy for any damaged or unsatisfactory products/ Please contact our customer service within 7 days of receiving your order for assistance</span>
             </div>
         </div>
-    </div>
-    <div id="detail-container" class="h-75dvh m-4 p-8 w-full overflow-hidden">
+    </section>
+    <section id="detail-container" class="h-75dvh bg-white m-4 p-8 w-full overflow-hidden">
         <div id="detail-items" class="flex justify-evenly h-full items-center">
             <!-- Detail Text Section -->
             <div id="detail-text" class="p-8 w-1/2 max-md:w-4/6">
@@ -149,8 +143,11 @@
             </div>
             </div>
         </div>
-    </div>
-    
+    </section>
+    <section class="h-dvh">
+        <h1 class="w-full heading font-quicksand text-center text-brightPink">Top Seller</h1>
+
+    </section>
 </body>
 <script>
     var toTop = 0;

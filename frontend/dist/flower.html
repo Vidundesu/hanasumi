@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hanasumi - Flowers</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="index.js"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      // JSON data representing the cake products
+      const flowerProducts = {
+        products: [
+          {
+            name: "Blanche",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod1.jpg",
+            description:
+              "Immerse yourself in a world of purity with our Blanche Bunch. Delicate white blossoms dance together, creating an enchanting arrangement that whispers of elegance and grace. Perfect for adding a touch of serenity to any space.",
+          },
+          {
+            name: "Delicate Flora",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod2.jpg",
+            description:
+              "Like a painter's masterpiece, the Delicate Flora bunch weaves a tapestry of colors and textures. Each bloom tells a story of nature's finest artistry, coming together in harmonious unity. Let these blooms paint your world with beauty.",
+          },
+          {
+            name: "Eco Bunch",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod3.png",
+            description:
+              "Embrace the charm of nature's bounty with our Eco Bunch. Crafted with a sustainable touch, this arrangement celebrates the earth's vibrant hues and fragrant delights. A true embodiment of eco-conscious elegance.",
+          },
+          {
+            name: "Bijou",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod4.jpg",
+            description:
+              "Inspired by the daintiness of a jewel, the Bijou Bunch sparkles with its petite yet captivating blooms. Every flower is a precious gem, carefully curated to create a stunning display that captures hearts.",
+          },
+          {
+            name: "Sweet Fantasy",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod5.jpg",
+            description:
+              "Indulge in a Sweet Fantasy with this bouquet that's straight out of a dream. Soft pastel petals and delicate fragrances conjure a world of enchantment and wonder. Let your imagination take flight.",
+          },
+          {
+            name: "Angelic",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod6.jpg",
+            description:
+              "Elevate your surroundings to celestial heights with our Angelic Aura Arrangement. White and pale blooms come together, exuding an ethereal elegance that radiates purity and divinity.",
+          },
+          {
+            name: "Weaver Bird",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod7.jpg",
+            description:
+              "Just as the weaver bird crafts intricate nests, our Weaver Bird Bunch weaves together a masterpiece of vibrant hues and delicate petals. Nature's symphony captured in a harmonious display.",
+          },
+          {
+            name: "Exquisite",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod8.jpg",
+            description:
+              "Unveil the epitome of sophistication with our Exquisite Elegance Ensemble. Each flower is a stroke of refined beauty, meticulously arranged to create a statement of timeless grace.",
+          },
+          {
+            name: "Floral Fantasy",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod9.jpg",
+            description:
+              "Step into a realm of whimsy and delight with our Floral Fantasy Medley. A playful dance of colors and forms, this arrangement is a celebration of nature's exuberance and charm.",
+          },
+          {
+            name: "Love on my Mind",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod10.jpg",
+            description:
+              "Express the language of the heart with our Love on My Mind Bouquet. Radiant blooms stand as a testament to affection and devotion, making every glance a heartfelt connection.",
+          },
+          {
+            name: "Sakura Scented Bunch",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod11.jpg",
+            description:
+              "Welcome the ephemeral beauty of spring into your space with our Sakura Scented Bunch. Delicate cherry blossoms carry the essence of renewal, infusing the air with a captivating fragrance.",
+          },
+          {
+            name: "Sweet Bunch",
+            price: "Rs. 6000.0",
+            image: "/frontend/dist/products/prod12.jpg",
+            description:
+              "Let your emotions sing with our Sweet Bunch Serenade. A chorus of gentle petals and fragrances, this arrangement is a poetic expression of tenderness and care.",
+          },
+        ],
+      };
+
+      // Function to fetch and display products
+      function renderProducts() {
+        const container = document.getElementById("products");
+
+        // Loop through the products and generate HTML for each
+        flowerProducts.products.forEach((product) => {
+          const productHTML = `
+                    <div class="item1 relative w-[300px] transition -z-50  duration-1000">
+                        <img src="${product.image}" class="item w-[300px] h-[300px] object-cover">
+                        <hr>
+                        <div id="text-product" class="">
+                            <h1 class="font-lora mt-4" style="font-size: clamp(1rem, 2vw, 3rem);">${product.name}</h1>
+                        </div>
+                        <hr>
+                        <div class="mt-4 w-full flex flex-row justify-between items-center">
+                            <span id="price" class="font-poppins caption">${product.price}</span>
+                            <div class="flex flex-row gap-4">
+                                <span class="font-quicksand text-sm text-brightPink">1</span>
+                                <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 dark:border-brightPink dark:hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-2.5 h-2.5 dark:text-gray-400 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                    </svg>
+                                </button>
+                                <span class="material-symbols-outlined ml-4">
+                                    shopping_bag
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          // Append the product's HTML to the container
+          container.insertAdjacentHTML("beforeend", productHTML);
+        });
+      }
+
+      // Wait for the DOM to load before calling renderProducts
+      document.addEventListener("DOMContentLoaded", renderProducts);
+    </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_bag" />
+    <style>
+      #flower-home {
+          background-image: url(flower-background/annie-spratt-01Wa3tPoQQ8-unsplash.jpg);
+          background-size: cover;
+          background-position-y: 70%;
+      }
+  </style>
+  </head>
+  <body>
+    <div
+      id="flower-home"
+      class="flex items-center justify-center w-full h-[50vh] m-0"
+    >
+      <div
+        id="home-text"
+        class="backdrop-brightness-150 text-white bg-[#d42583] bg-opacity-55 p-12 rounded"
+      >
+        <h1 class="font-poppins tracking-widest">FLOWERS</h1>
+      </div>
+    </div>
+    <div id="navbar-placeholder" class="sticky top-0"></div>
+    <div id="text" class="flex justify-center w-full">
+      <div id="product-idea" class="text-center max-w-[70%] mt-4 p-8">
+        <span class="font-lora caption"
+          >Welcome to our exquisite flower bouquet collection. Each of our
+          carefully crafted bouquets is a masterpiece of nature's beauty,
+          designed to bring a touch of elegance and charm to any occasion.
+          <span class="bloom font-lora text-brightPink"
+            >Our blooms are hand-selected for their vibrant colors, delicate
+            fragrances, and long-lasting freshness, ensuring that your bouquet
+            remains a breathtaking centerpiece.</span
+          ><br />
+          Whether you're celebrating a joyous milestone, expressing heartfelt
+          sentiments, or simply brightening someone's day, our bouquets are a
+          symbol of care and appreciation. Discover the artistry of nature with
+          our stunning flower arrangements, thoughtfully curated to bring smiles
+          and happiness to every moment.</span
+        >
+      </div>
+      
+    </div>
+    <main id="cake-products" class="flex justify-center w-full"> 
+        <div id="products" class="flex flex-wrap justify-center gap-8 p-12 mb-8"></div>
+    </main>
+  </body>
+</html>
