@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weddings - The Flower Haze</title>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+    <script src="./index.js"></script>
+    <link href="./output.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+         #wedding-home{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            width:100%;
+            height:50vh;
+            background-image: url(wedding-pics/wedding-1937022_1920.jpg);
+            background-size: cover;
+            background-position-y: 90%;
+        }
+        .container {
+            padding: 75px 0;
+            margin: 0 auto;
+            width: 90%;
+        }
+        .gallery-wrap {
+            display: flex;
+            width: 100%;
+            height: 80vh;
+        }
+
+        .item {
+            flex: 1;
+            height: 100%;
+            background-position: center;
+            background-size: cover;
+            background-repeat: none;
+            transition: flex 0.8s ease;
+        }
+        .item:hover {
+            flex: 7;
+        }
+
+        .item-1 {
+            background-image: url(wedding-pics/beach-1854076_1920.jpg);
+        }
+
+        .item-2 {
+            background-image: url(wedding-pics/bouquet-1566272_1920.jpg);
+        }
+
+        .item-3 {
+            background-image: url(wedding-pics/christening-1499314_1920.jpg);
+        }
+
+        .item-4 {
+            background-image: url(wedding-pics/event-6927353_1920.jpg);
+        }
+
+        .item-5 {
+            background-image: url(wedding-pics/events-2609526_1920.jpg);
+        }
+        .item-6{
+            background-image: url(wedding-pics/exclusive-banquet-1812772_1920.jpg);
+        }
+        .item-7{
+            background-image: url(wedding-pics/restaurant-bern-179047_1920.jpg);
+        }
+        .item-8{
+            background-image: url(wedding-pics/table-setting-1170331_1920.jpg);
+        }
+        .item-9{
+            background-image: url(wedding-pics/vintage-van-4288994_1920.jpg);
+        }
+        .item-10{
+            background-image: url(wedding-pics/wedding-1238432_1920.jpg);
+        }
+        .item-11{
+            background-image: url(wedding-pics/wedding-1854074_1920.jpg);
+        }
+        .item-12{
+            background-image: url(wedding-pics/wedding-5955351_1920.jpg);
+        }
+        .item-13{
+            background-image: url(wedding-pics/wedding-flowers-2051724_1920.jpg);
+        }
+        .item-14{
+            background-image: url(wedding-pics/wedding-photography-5582980_1920.jpg);
+        }
+        #btn-wedding{
+            border-radius: 10px;
+            border: none;
+            background-color:#f7cfe4;
+            padding: 15px;
+            transition: 0.5s;
+        }
+        #btn-wedding:hover{
+            background-color:  #d2599a;
+        }
+    </style>
+</head>
+<body>
+    <div id="wedding-home" class="flex items-center justify-center w-full h-[50vh] m-0">
+        <div id="home-text" class="backdrop-brightness-150 text-white bg-[#d42583] bg-opacity-55 p-12 rounded">
+            <h1 class="font-poppins tracking-widest">Weddings & Events</h1>
+        </div>
+    </div>
+    <div id="navbar-placeholder" class="sticky  top-0"></div>
+    <div id="text" class="flex justify-center w-full">
+        <div id="product-idea" class="text-center max-w-[70%] mt-4 p-8">
+            <span class="font-lora caption">With a harmonious blend of exquisite flowers and delectable cakes, we are here to transform your special day into an unforgettable symphony of beauty and joy.<span class="weddings font-lora text-pink"> Our team is dedicated to crafting a bespoke experience that resonates with your unique vision, ensuring that every petal and every layer holds the essence of your love story. </span>Let us be a part of your journey, curating an atmosphere that whispers elegance and celebrates your love in the most enchanting way. Your wedding deserves nothing less than perfection, and we're here to make every moment, every glance, and every bite a cherished memory to last a lifetime.</span>
+        </div>
+    </div>
+    <div id="contact" class="flex justify-center">
+        <a href="contact.html"><input type="submit" value="Contact us" id="btn-wedding"></a> 
+    </div>
+    <div class="container">
+        <div class="gallery-wrap flex-row max-md:flex-col max-md:h-2dvh">
+            <div class="item item-1"></div>
+            <div class="item item-2"></div>
+            <div class="item item-3"></div>
+            <div class="item item-4"></div>
+            <div class="item item-5"></div>
+            <div class="item item-6"></div>
+            <div class="item item-7"></div>
+            <div class="item item-8"></div>
+            <div class="item item-9"></div>
+            <div class="item item-10"></div>
+            <div class="item item-11"></div>
+            <div class="item item-12"></div>
+            <div class="item item-13"></div>
+            <div class="item item-14"></div>
+        </div>
+    </div>
+    <section class="h-dvh">
+        <h1 class="w-full heading font-quicksand text-center text-brightPink">Wedding Bouquets</h1>
+    </section>
+    <div id="footer-placeholder" class="sticky z-50 top-0 "></div>
+</body>
+</html>

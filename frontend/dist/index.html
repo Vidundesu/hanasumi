@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hanasumi - Home</title>
     <link href="./output.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./style.css">
     <script src="index.js"></script>
     <script>
@@ -31,6 +34,118 @@
             document.getElementById("home").style.backgroundImage = "url("+ image[random] +")";
              document.getElementById("box-text").innerHTML=text[random];
          }
+
+         // JSON data representing the cake products
+        //going to use this scripts for API methods in the backend development. for the time being i hard coded products
+        //this method will help to communicate with the PHP backend.
+        const topProducts = {
+            "products": [
+                {
+                    name: "Weaver Bird",
+                    price: "Rs. 6000.0",
+                    image: "/frontend/dist/products/prod7.jpg",
+                    description:
+                    "Just as the weaver bird crafts intricate nests, our Weaver Bird Bunch weaves together a masterpiece of vibrant hues and delicate petals. Nature's symphony captured in a harmonious display.",
+                },
+                {
+                    "name": "Chocolate Swiss Roll with Buttercream & Ganache",
+                    "image": "cakes/cake2.jpg",
+                    "price": "Rs. 6800.00",
+                    "description": "Unwrap the allure of velvety chocolate in our Swiss Roll masterpiece. A tender chocolate sponge embraces luscious layers of buttercream and a rich ganache drizzle. An indulgence that unveils layers of comfort and decadence."
+                },
+                {
+                    name: "Sakura Scented Bunch",
+                    price: "Rs. 6000.0",
+                    image: "/frontend/dist/products/prod11.jpg",
+                    description:
+                    "Welcome the ephemeral beauty of spring into your space with our Sakura Scented Bunch. Delicate cherry blossoms carry the essence of renewal, infusing the air with a captivating fragrance.",
+                },
+                {
+                    "name": "Watermelons & Fruity Lovers",
+                    "image": "cakes/cake3.jpg",
+                    "price": "Rs. 3500.00",
+                    "description": "Dive into a refreshing oasis of sweetness with our Watermelons & Fruity Lovers cake. Bursting with the juiciness of ripe watermelons and a medley of vibrant fruits, this creation is a vibrant symphony of summer's finest offerings."
+                },
+                {
+                    name: "Floral Fantasy",
+                    price: "Rs. 6000.0",
+                    image: "/frontend/dist/products/prod9.jpg",
+                    description:
+                    "Step into a realm of whimsy and delight with our Floral Fantasy Medley. A playful dance of colors and forms, this arrangement is a celebration of nature's exuberance and charm.",
+                },
+                {
+                    name: "Love on my Mind",
+                    price: "Rs. 6000.0",
+                    image: "/frontend/dist/products/prod10.jpg",
+                    description:
+                    "Express the language of the heart with our Love on My Mind Bouquet. Radiant blooms stand as a testament to affection and devotion, making every glance a heartfelt connection.",
+                } 
+            ]
+        };
+    
+        // Function to fetch and display products
+        function renderProducts() {
+  const container = document.getElementById("products");
+
+  topProducts.products.forEach((product) => {
+    const productHTML = `
+      <div class="swiper-slide item1 relative w-[300px] transition -z-50 duration-1000">
+        <img src="${product.image}" class="item w-[300px] h-[300px] object-cover">
+        <hr>
+        <div id="text-product" class="">
+            <h1 class="font-lora mt-4" style="font-size: clamp(1rem, 2vw, 3rem);">${product.name}</h1>
+        </div>
+        <hr>
+        <div class="mt-4 w-full flex flex-row justify-between items-center">
+            <span id="price" class="font-poppins caption">${product.price}</span>
+            <div class="flex flex-row gap-4">
+                <span class="font-quicksand text-sm text-brightPink">1</span>
+                <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                    <svg class="w-2.5 h-2.5 dark:text-brightPink " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                    </svg>
+                </button>
+                <span class="material-symbols-outlined ml-4">
+                    shopping_bag
+                </span>
+            </div>
+        </div>
+      </div>
+    `;
+    container.insertAdjacentHTML("beforeend", productHTML);
+  });
+
+  // Initialize Swiper
+  new Swiper(".swiper-container", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+    },
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", renderProducts);
      </script>
 </head>
 <body>
@@ -45,16 +160,16 @@
     <section class="h-dvh w-full flex justify-center items-center">
         <div id="product-home-list" class="h-5/6 w-8/12 grid grid-cols-4 max-md:grid-cols-2 justify-center items-center gap-4">
            <div class="max-md:h-80 bg-pink">
-                <img src="pics/cake.jpg" alt="" class=" object-cover h-full w-full">
+                <a href="cake.html"><img src="pics/cake.jpg" alt="" class=" object-cover h-full w-full"></a>
            </div>          
            <div class="max-md:h-80 bg-pink">
-            <img src="pics/bunch.jpg" alt="" class="object-cover h-full w-full">
+            <a href="flower.html"><img src="pics/bunch.jpg" alt="" class="object-cover h-full w-full"></a>
            </div>   
            <div class="max-md:h-80 bg-pink">
-            <img src="pics/wedding.jpg" alt="" class="object-cover h-full w-full">
+            <a href="wedding.html"><img src="pics/wedding.jpg" alt="" class="object-cover h-full w-full"></a>
            </div>   
            <div class="max-md:h-80 bg-pink">
-            <img src="pics/offer.jpg" alt="" class="object-cover h-full w-full">
+            <a href="custom.html"><img src="pics/offer.jpg" alt="" class="object-cover h-full w-full"></a>
            </div>    
         </div>
     </section>
@@ -63,10 +178,10 @@
     <section id="about-us" class="h-half w-full relative flex justify-center">
                
         <div class="h-full w-8/12 absolute flex flex-col justify-center items-center ">
-            <h1 class="font-poppins heading font-semibold">HanaSumi</h1>
-            <h2 class="font-yeseva font-bold italic font-pink">-The Flower Haze-</h2>
+            <h1 class="font-poppins heading font-semibold text-gray-900">HanaSumi</h1>
+            <h2 class="font-yeseva font-bold italic text-brightPink">-The Flower Haze-</h2>
             <div id="about-text" class="mt-8 w-5/6">
-                <span class="font-yeseva italic ">With a heritage of over two decades, HanaSumi presents a collection of premium greenhouse-grown flowers that epitomize botanical elegance. Each blossom is a testament to our dedication to crafting nature's finest, meeting diverse floral needs with a touch of luxury.</span>
+                <span class="font-yeseva italic text-gray-500 ">With a heritage of over two decades, HanaSumi presents a collection of premium greenhouse-grown flowers that epitomize botanical elegance. Each blossom is a testament to our dedication to crafting nature's finest, meeting diverse floral needs with a touch of luxury.</span>
             </div>
         </div>
         <div id="animation" class="absolute w-full">
@@ -96,35 +211,35 @@
     <section class="w-full h-75dvh flex justify-center">
         <div class="w-10/12 h-full flex justify-evenly items-center bg-lightPink max-md:flex-col">    
             <div class="w-4/12 max-md:w-8/12 h-5/6 flex flex-col justify-center">
-                <span class="material-symbols-outlined">local_shipping</span>
+               
                 <h2 class="font-quicksand font-bold sub-heading">Fast and Reliable Delivery</h2>
                 <span class="font-lora">We offer fast and reliable delivery services. Your flowers will be delivered to your doorstep with care and precision.</span>
             </div>
             <div class="w-4/12 max-md:w-8/12 h-5/6 flex flex-col justify-center">
-                <span class="material-symbols-outlined">place_item</span>
+                
                 <h2 class="font-quicksand font-bold sub-heading">Refunds</h2>
                 <span class="font-lora">We offer a hassle-free refund policy for any damaged or unsatisfactory products/ Please contact our customer service within 7 days of receiving your order for assistance</span>
             </div>
         </div>
     </section>
-    <section id="detail-container" class="h-75dvh bg-white m-4 p-8 w-full overflow-hidden">
+    <section id="detail-container" class="h-75dvh bg-white m-4 p-8 max-md:p-4 w-full overflow-hidden">
         <div id="detail-items" class="flex justify-evenly h-full items-center">
             <!-- Detail Text Section -->
-            <div id="detail-text" class="p-8 w-1/2 max-md:w-4/6">
+            <div id="detail-text" class="max-md:p-4 p-8 w-1/2 max-md:full">
                 <h2 class="heading text-gray-900 text-center font-kaisei">
                     生け花 (ikebana)
                 </h2>
                 <h5 class="text-[#d42583] italic text-center font-light font-yeseva">
                     -Flower Arrangement-
                 </h5>
-                <div class="detail-para p-5 mt-2">
+                <div class="max-md:p-0 p-5 mt-2">
                     <h3 class="sub-heading font-bold">Discover the Beauty of Japanese Floral Art</h3>
                     <span class="block mt-2 caption text-gray-700">
                         Immerse yourself in the mesmerizing world of Japanese floral art. Our
                         exquisite collection of handcrafted floral arrangements captures the essence
-                        of hanaSumi, The Flower Haze. Each arrangement is meticulously crafted to
+                        of hanaSumi, The Flower Haze. <span class="max-sm:hidden">Each arrangement is meticulously crafted to
                         bring beauty and tranquility to your space. Explore our online store and
-                        discover the perfect floral masterpiece for any occasion.
+                        discover the perfect floral masterpiece for any occasion.</span>
                     </span>
                 </div>
             </div>
@@ -132,7 +247,7 @@
             <!-- Divider -->
             <div class="divider w-[2px] h-5/6 bg-gray-300"></div>
     
-            <!-- Slider Section -->
+            
             <div class="slider flex justify-center">
                 <div class="slider__row gap-4" id="row">
                   <div class="row__item"><img src="detail/detail7.jpg" class="object-cover"></div>
@@ -145,9 +260,20 @@
         </div>
     </section>
     <section class="h-dvh">
-        <h1 class="w-full heading font-quicksand text-center text-brightPink">Top Seller</h1>
-
+        <h1 class="w-full heading font-quicksand text-center text-brightPink">
+            Top Seller
+        </h1>
+        <main class="swiper-container relative">
+            <!-- Slider Wrapper -->
+            <div id="products" class="swiper-wrapper">
+               
+            </div>
+            <div class="swiper-button-next" style="color:pink"></div>
+            <div class="swiper-button-prev" style="color:pink"></div>
+        </main>
     </section>
+    
+    <div id="footer-placeholder" class="sticky z-50 top-0 "></div>
 </body>
 <script>
     var toTop = 0;

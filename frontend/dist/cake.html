@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./style.css">
     <script>
         // JSON data representing the cake products
+        //going to use this scripts for API methods in the backend development. for the time being i hard coded products
+        //this method will help to communicate with the PHP backend.
         const cakeProducts = {
             "products": [
                 {
@@ -58,8 +60,8 @@
                             <span id="price" class="font-poppins caption">${product.price}</span>
                             <div class="flex flex-row gap-4">
                                 <span class="font-quicksand text-sm text-brightPink">1</span>
-                                <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 dark:border-brightPink dark:hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                                    <svg class="w-2.5 h-2.5 dark:text-gray-200 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-2.5 h-2.5 dark:text-brightPink " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
                                     </svg>
                                 </button>
@@ -103,5 +105,6 @@
     <main id="cake-products" class="flex justify-center w-full"> 
         <div id="products" class="flex flex-wrap justify-center gap-8 p-12 mb-8"></div>
     </main>
+    <div id="footer-placeholder" class="sticky z-50 top-0 "></div>
 </body>
 </html>
