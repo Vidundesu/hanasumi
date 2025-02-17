@@ -35,117 +35,38 @@
              document.getElementById("box-text").innerHTML=text[random];
          }
 
-         // JSON data representing the cake products
-        //going to use this scripts for API methods in the backend development. for the time being i hard coded products
-        //this method will help to communicate with the PHP backend.
-        const topProducts = {
-            "products": [
-                {
-                    name: "Weaver Bird",
-                    price: "Rs. 6000.0",
-                    image: "/frontend/dist/products/prod7.jpg",
-                    description:
-                    "Just as the weaver bird crafts intricate nests, our Weaver Bird Bunch weaves together a masterpiece of vibrant hues and delicate petals. Nature's symphony captured in a harmonious display.",
-                },
-                {
-                    "name": "Chocolate Swiss Roll with Buttercream & Ganache",
-                    "image": "cakes/cake2.jpg",
-                    "price": "Rs. 6800.00",
-                    "description": "Unwrap the allure of velvety chocolate in our Swiss Roll masterpiece. A tender chocolate sponge embraces luscious layers of buttercream and a rich ganache drizzle. An indulgence that unveils layers of comfort and decadence."
-                },
-                {
-                    name: "Sakura Scented Bunch",
-                    price: "Rs. 6000.0",
-                    image: "/frontend/dist/products/prod11.jpg",
-                    description:
-                    "Welcome the ephemeral beauty of spring into your space with our Sakura Scented Bunch. Delicate cherry blossoms carry the essence of renewal, infusing the air with a captivating fragrance.",
-                },
-                {
-                    "name": "Watermelons & Fruity Lovers",
-                    "image": "cakes/cake3.jpg",
-                    "price": "Rs. 3500.00",
-                    "description": "Dive into a refreshing oasis of sweetness with our Watermelons & Fruity Lovers cake. Bursting with the juiciness of ripe watermelons and a medley of vibrant fruits, this creation is a vibrant symphony of summer's finest offerings."
-                },
-                {
-                    name: "Floral Fantasy",
-                    price: "Rs. 6000.0",
-                    image: "/frontend/dist/products/prod9.jpg",
-                    description:
-                    "Step into a realm of whimsy and delight with our Floral Fantasy Medley. A playful dance of colors and forms, this arrangement is a celebration of nature's exuberance and charm.",
-                },
-                {
-                    name: "Love on my Mind",
-                    price: "Rs. 6000.0",
-                    image: "/frontend/dist/products/prod10.jpg",
-                    description:
-                    "Express the language of the heart with our Love on My Mind Bouquet. Radiant blooms stand as a testament to affection and devotion, making every glance a heartfelt connection.",
-                } 
-            ]
-        };
-    
-        // Function to fetch and display products
-        function renderProducts() {
-  const container = document.getElementById("products");
-
-  topProducts.products.forEach((product) => {
-    const productHTML = `
-      <div class="swiper-slide item1 relative w-[300px] transition -z-50 duration-1000">
-        <img src="${product.image}" class="item w-[300px] h-[300px] object-cover">
-        <hr>
-        <div id="text-product" class="">
-            <h1 class="font-lora mt-4" style="font-size: clamp(1rem, 2vw, 3rem);">${product.name}</h1>
-        </div>
-        <hr>
-        <div class="mt-4 w-full flex flex-row justify-between items-center">
-            <span id="price" class="font-poppins caption">${product.price}</span>
-            <div class="flex flex-row gap-4">
-                <span class="font-quicksand text-sm text-brightPink">1</span>
-                <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                    <svg class="w-2.5 h-2.5 dark:text-brightPink " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                    </svg>
-                </button>
-                <span class="material-symbols-outlined ml-4">
-                    shopping_bag
-                </span>
-            </div>
-        </div>
-      </div>
-    `;
-    container.insertAdjacentHTML("beforeend", productHTML);
-  });
-
-  // Initialize Swiper
-  new Swiper(".swiper-container", {
-    slidesPerView: 1,
-    spaceBetween: 10,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 4,
-        spaceBetween: 40,
-      },
-    },
-  });
-}
+       
+    // Initialize Swiper
+    new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        },
+        breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+        },
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+        },
+        },
+    });
 
 
-document.addEventListener("DOMContentLoaded", renderProducts);
+
+    document.addEventListener("DOMContentLoaded", renderProducts);
      </script>
 </head>
 <body>
@@ -160,16 +81,16 @@ document.addEventListener("DOMContentLoaded", renderProducts);
     <section class="h-dvh w-full flex justify-center items-center">
         <div id="product-home-list" class="h-5/6 w-8/12 grid grid-cols-4 max-md:grid-cols-2 justify-center items-center gap-4">
            <div class="max-md:h-80 bg-pink">
-                <a href="cake.html"><img src="pics/cake.jpg" alt="" class=" object-cover h-full w-full"></a>
+                <a href="cake.html"><img src="pics/cake.webp" alt="" class=" object-cover h-full w-full"></a>
            </div>          
            <div class="max-md:h-80 bg-pink">
-            <a href="flower.html"><img src="pics/bunch.jpg" alt="" class="object-cover h-full w-full"></a>
+            <a href="flower.html"><img src="pics/bunch.webp" alt="" class="object-cover h-full w-full"></a>
            </div>   
            <div class="max-md:h-80 bg-pink">
-            <a href="wedding.html"><img src="pics/wedding.jpg" alt="" class="object-cover h-full w-full"></a>
+            <a href="wedding.html"><img src="pics/wedding.webp" alt="" class="object-cover h-full w-full"></a>
            </div>   
            <div class="max-md:h-80 bg-pink">
-            <a href="custom.html"><img src="pics/offer.jpg" alt="" class="object-cover h-full w-full"></a>
+            <a href="custom.html"><img src="pics/offer.webp" alt="" class="object-cover h-full w-full"></a>
            </div>    
         </div>
     </section>

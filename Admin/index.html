@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="min-h-screen flex">
+      <!-- Sidebar -->
+      <aside
+        class="bg-gray-800 text-white w-64 space-y-6 py-7 px-2 fixed h-full"
+      >
+        <h2 class="text-2xl font-bold text-center">Admin Panel</h2>
+        <nav>
+          <ul class="space-y-2">
+            <li>
+              <a
+                href="#dashboard"
+                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a
+                href="#pending-orders"
+                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
+                >Pending Orders</a
+              >
+            </li>
+            <li>
+              <a
+                href="#deliveries"
+                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
+                >Deliveries</a
+              >
+            </li>
+            <li>
+              <a
+                href="#delivery-men"
+                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
+                >Delivery Men</a
+              >
+            </li>
+            <li>
+              <a
+                href="#products"
+                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a
+                href="#logs"
+                class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700"
+                >Logs</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="ml-64 flex-1 p-8">
+        <!-- Dashboard Page -->
+        <section id="dashboard" class="page">
+          <h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+
+          <!-- Stats Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-gray-500 text-sm mb-2">Total Orders</h3>
+              <p id="c-total-orders" class="text-3xl font-bold"></p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
+              <h3 class="text-gray-500 text-sm mb-2">Total Income</h3>
+              <p id="c-total-income" class="amount text-3xl font-bold"></p>
+            </div>
+          </div>
+
+          <!-- Chart -->
+          <div class="bg-white p-6 rounded-lg shadow">
+            <canvas id="salesChart" class="w-full h-96"></canvas>
+          </div>
+        </section>
+        <section id="pending-orders" class="page hidden">
+          <h1 class="text-3xl font-bold mb-6">Pending Orders</h1>
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50"></thead>
+              <tbody class="divide-y divide-gray-200" id="pendingOrdersBody">
+                <!-- Added ID -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Deliveries Page -->
+        <section id="deliveries" class="page hidden">
+          <h1 class="text-3xl font-bold mb-6">Deliveries</h1>
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Order ID
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Customer
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Delivery Date
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <!-- Sample Data -->
+                <tr>
+                  <td class="px-6 py-4">#1234</td>
+                  <td class="px-6 py-4">Jane Smith</td>
+                  <td class="px-6 py-4">2023-09-16</td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                    >
+                      Delivered
+                    </span>
+                  </td>
+                </tr>
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="delivery-men" class="page hidden">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold">Delivery Men</h1>
+            <button
+              onclick="openAddDeliveryManModal()"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Add Delivery Man
+            </button>
+          </div>
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Contact
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Status
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200" id="deliveryMenList">
+                <tr>
+                  <td class="px-6 py-4">John Doe</td>
+                  <td class="px-6 py-4">john@example.com</td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                    >
+                      Active
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <button
+                      onclick="deleteDeliveryMan(this)"
+                      class="text-red-500 hover:text-red-700"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Products Page -->
+        <section id="products" class="page hidden">
+          <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold">Products</h1>
+            <button
+              onclick="openAddProductModal()"
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            >
+              Add Product
+            </button>
+          </div>
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Product Name
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Price
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Stock
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200" id="productsList">
+                <tr>
+                  <td class="px-6 py-4">Sample Product</td>
+                  <td class="px-6 py-4">$49.99</td>
+                  <td class="px-6 py-4">100</td>
+                  <td class="px-6 py-4">
+                    <button class="text-red-500 hover:text-red-700">
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Logs Page -->
+        <section id="logs" class="page hidden">
+          <h1 class="text-3xl font-bold mb-6">System Logs</h1>
+          <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="min-w-full">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Timestamp
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    User
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Action
+                  </th>
+                  <th
+                    class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
+                  >
+                    Details
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200">
+                <tr>
+                  <td class="px-6 py-4">2023-09-20 14:30:00</td>
+                  <td class="px-6 py-4">admin@example.com</td>
+                  <td class="px-6 py-4">Product Added</td>
+                  <td class="px-6 py-4">Added new product "Sample Product"</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      // Global chart reference
+      let salesChart = null;
+
+      async function loadDashboardData() {
+        try {
+          const response = await fetch(
+            "http://localhost/backend/api/admin/dashboard",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include",
+            }
+          );
+          const data = await response.json();
+          const orderCount = data.data.total_orders;
+
+          // Update stats
+          document.getElementById("c-total-orders").textContent = orderCount;
+          const income = data.data.current_month_income;
+          console.log(income);
+          document.querySelector(
+            "#c-total-income"
+          ).textContent = `Rs. ${income}`;
+
+          // Update chart
+          updateSalesChart(data.data.monthly_sales);
+        } catch (error) {
+          console.error("Error loading dashboard data:", error);
+        }
+      }
+
+      async function loadPendingOrders() {
+        try {
+          const response = await fetch(
+            "http://localhost/backend/api/admin/pending/orders",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include",
+            }
+          );
+          const result = await response.json();
+          const orders = result.data; // Access the data array
+
+          if (!Array.isArray(orders)) {
+            console.error("Expected an array but got:", orders);
+            return;
+          }
+
+          console.log(orders);
+          const tbody = document.querySelector("#pending-orders tbody");
+          tbody.innerHTML = orders
+            .map(
+              (order) => `
+                    <tr>
+                        <td class="px-6 py-4">#${order.id}</td>
+                        <td class="px-6 py-4">${
+                          order.fname  || "N/A"
+                        }</td>
+                        <td class="px-6 py-4">${new Date(
+                          order.date
+                        ).toLocaleDateString()}</td>
+                        <td class="px-6 py-4">Rs. ${order.total}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">
+                                ${order.deliverStatus}
+                            </span>
+                        </td>
+                    </tr>
+                `
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error loading pending orders:", error);
+        }
+      }
+
+      async function loadDeliveryMen() {
+        try {
+          const response = await fetch("/backend/api/admin/delivery-men");
+          const deliveryMen = await response.json();
+
+          const tbody = document.querySelector("#deliveryMenList");
+          tbody.innerHTML = deliveryMen
+            .map(
+              (dm) => `
+                    <tr>
+                        <td class="px-6 py-4">${dm.name}</td>
+                        <td class="px-6 py-4">${dm.email}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                              dm.status === "Active"
+                                ? "bg-green-100 text-green-800"
+                                : "bg-red-100 text-red-800"
+                            }">
+                                ${dm.status}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4">
+                            <button onclick="deleteDeliveryMan(this)" class="text-red-500 hover:text-red-700">Delete</button>
+                        </td>
+                    </tr>
+                `
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error loading delivery men:", error);
+        }
+      }
+
+      function updateSalesChart(monthlySales) {
+        const ctx = document.getElementById("salesChart").getContext("2d");
+
+        // Destroy existing chart instance
+        if (salesChart) {
+          salesChart.destroy();
+        }
+
+        salesChart = new Chart(ctx, {
+          type: "line",
+          data: {
+            labels: monthlySales
+              .map((m) => {
+                const [year, month] = m.month.split("-");
+                return new Date(year, month - 1).toLocaleString("default", {
+                  month: "short",
+                });
+              })
+              .reverse(),
+            datasets: [
+              {
+                label: "Monthly Orders",
+                data: monthlySales.map((m) => m.order_count).reverse(),
+                borderColor: "rgb(75, 192, 192)",
+                tension: 0.1,
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+          },
+        });
+      }
+
+      // Page Navigation with data loading
+      document.querySelectorAll("nav a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const pageId = link.getAttribute("href").substring(1);
+
+          document.querySelectorAll(".page").forEach((page) => {
+            page.classList.add("hidden");
+          });
+
+          const activePage = document.getElementById(pageId);
+          activePage.classList.remove("hidden");
+
+          // Load data for the active page
+          switch (pageId) {
+            case "dashboard":
+              loadDashboardData();
+              break;
+            case "pending-orders":
+              loadPendingOrders();
+              break;
+            case "delivery-men":
+              loadDeliveryMen();
+              break;
+            // Add cases for other pages as needed
+          }
+        });
+      });
+
+      // Initial load
+      document.addEventListener("DOMContentLoaded", () => {
+        loadDashboardData();
+      });
+    </script>
+  </body>
+</html>

@@ -14,8 +14,6 @@
         background-size: cover;
         background-position-y: 70%;
       }
-    
-   
     </style>
   </head>
   <body class="bg-white">
@@ -33,304 +31,562 @@
     <div id="navbar-placeholder" class="sticky top-0"></div>
     <div class="grid h-dvh grid-cols-12">
       <div
+        id="products"
         class="col-span-8 overflow-y-scroll h-screen [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-200 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
-      >
-        <div class="w-full flex flex-row gap-4 p-4">
-          <img src="cakes/cake2.jpg" alt="" class="w-2/12 h-1/6" />
-          <div class="flex flex-col justify-between w-9/12">
-            <div>
-              <h2 class="sub-heading font-lora">
-                Chocolate Swiss Roll with Buttercream & Ganache
-              </h2>
-              <span class="font-poppins text-brightPink caption"
-                >1Kg / Eggless / Chocolate Cream</span
-              >
-            </div>
-
-            <div class="flex w-full justify-between">
-              <button
-                type="button"
-                id="increment-button"
-                data-input-counter-increment="counter-input"
-                class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-              >
-                <svg
-                  class="w-2.5 h-2.5 dark:text-brightPink"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 1v16M1 9h16"
-                  />
-                </svg>
-              </button>
-              <span class="mr-4">Rs. 1000.00</span>
-            </div>
-          </div>
-          <button class="flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="lightgray"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-        <div class="w-full flex flex-row gap-4 p-4">
-          <img src="products/prod1.jpg" alt="" class="w-2/12 h-1/6" />
-          <div class="flex flex-col justify-between w-9/12">
-            <div class="">
-              <h2 class="sub-heading font-lora">Blanche</h2>
-              <span class="font-poppins text-brightPink caption"
-                >Medium/ Elephant poo paper</span
-              >
-            </div>
-
-            <div class="flex w-full justify-between">
-              <button
-                type="button"
-                id="increment-button"
-                data-input-counter-increment="counter-input"
-                class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-              >
-                <svg
-                  class="w-2.5 h-2.5 dark:text-brightPink"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 1v16M1 9h16"
-                  />
-                </svg>
-              </button>
-              <span class="mr-4">Rs. 1000.00</span>
-            </div>
-          </div>
-          <button class="flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="lightgray"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-        <div class="w-full flex flex-row gap-4 p-4">
-          <img src="products/prod2.jpg" alt="" class="w-2/12 h-1/6" />
-          <div class="flex flex-col justify-between w-9/12">
-            <div>
-              <h2 class="sub-heading font-lora">Delicate Flora</h2>
-              <span class="font-poppins text-brightPink caption">Small</span>
-            </div>
-
-            <div class="flex w-full justify-between">
-              <button
-                type="button"
-                id="increment-button"
-                data-input-counter-increment="counter-input"
-                class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-              >
-                <svg
-                  class="w-2.5 h-2.5 dark:text-brightPink"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 1v16M1 9h16"
-                  />
-                </svg>
-              </button>
-              <span class="mr-4">Rs. 1000.00</span>
-            </div>
-          </div>
-          <button class="flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="lightgray"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-        <div class="w-full flex flex-row gap-4 p-4">
-          <img src="cakes/cake5.jpg" alt="" class="w-2/12 h-1/6" />
-          <div class="flex flex-col justify-between w-9/12">
-            <div>
-              <h2 class="sub-heading font-lora">
-                Black Chocolate and Peach Glazed
-              </h2>
-              <span class="font-poppins text-brightPink caption">1Kg </span>
-            </div>
-
-            <div class="flex w-full justify-between">
-              <button
-                type="button"
-                id="increment-button"
-                data-input-counter-increment="counter-input"
-                class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-              >
-                <svg
-                  class="w-2.5 h-2.5 dark:text-brightPink"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 1v16M1 9h16"
-                  />
-                </svg>
-              </button>
-              <span class="mr-4">Rs. 1000.00</span>
-            </div>
-          </div>
-          <button class="flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="lightgray"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-        <div class="w-full flex flex-row gap-4 p-4">
-          <img src="cakes/cake3.jpg" alt="" class="w-2/12 h-1/6" />
-          <div class="flex flex-col justify-between w-9/12">
-            <div>
-              <h2 class="sub-heading font-lora">
-                Watermelons and Fruity Lovers
-              </h2>
-              <span class="font-poppins text-brightPink caption">500g</span>
-            </div>
-
-            <div class="flex w-full justify-between">
-              <button
-                type="button"
-                id="increment-button"
-                data-input-counter-increment="counter-input"
-                class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none"
-              >
-                <svg
-                  class="w-2.5 h-2.5 dark:text-brightPink"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 18 18"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 1v16M1 9h16"
-                  />
-                </svg>
-              </button>
-              <span class="mr-4">Rs. 1000.00</span>
-            </div>
-          </div>
-          <button class="flex items-center justify-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="lightgray"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div class="col-span-4  h-screen sticky top-0 ">
-        
+      ></div>
+      <div class="col-span-4 h-screen sticky top-0">
         <h2 class="font-lora sub-heading text-center">Checkout</h2>
-        <hr>
-        <div class="flex flex-row w-full p-4 justify-between">
-            <span>Total: </span><span>Rs. 14,000.00</span>
+        <hr />
+        <!-- Add this somewhere in your cart page HTML -->
+        <div class="totals-section p-4">
+          <div class="flex justify-between">
+            <span>Subtotal:</span>
+            <span id="subtotal-display">Rs. 0.00</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Discount:</span>
+            <span id="discount-display">Rs. 0.00</span>
+          </div>
+          <div class="flex justify-between font-bold">
+            <span>Total:</span>
+            <span id="total-display">Rs. 0.00</span>
+          </div>
         </div>
-        <hr>
-        <div class="flex flex-row w-full p-4 justify-between">
-            <span>Discount: </span><span>Rs. 00</span>
-        </div>
-        <div class="flex flex-row w-full p-4 justify-between">
-            <span>Sub Total: </span><span>Rs. 14,000.00</span>
-        </div>
-        <div class="divider w-10/12  mx-auto  mt-8 mb-4  h-[2px] bg-gray-300"></div>
+        <div
+          class="divider w-10/12 mx-auto mt-8 mb-4 h-[2px] bg-gray-300"
+        ></div>
         <div class="flex flex-row w-full p-4 justify-evenly items-center">
-            <span>Add Discount: </span><input type="text" class="border border-pink rounded p-2" placeholder="Add your Loyalty Number">
+          <span
+            class="cursor-pointer text-brightPink"
+            onclick="openPopup('card')"
+            >Add Card</span
+          >
+          <span
+            class="cursor-pointer text-brightPink"
+            onclick="openPopup('address')"
+            >Add Address</span
+          >
+        </div>
+        <!-- Popup Overlay -->
+        <div id="popup-overlay" class="popup-overlay hidden">
+          <div class="popup-content bg-white p-6 rounded-lg relative">
+            <span
+              class="absolute top-2 right-4 cursor-pointer text-xl"
+              onclick="closePopup()"
+              >×</span
+            >
+            <div id="popup-content"></div>
+          </div>
+        </div>
+        <!-- Popup Overlay -->
+        <div id="popup-overlay-for-error" class="popup-overlay-for-error hidden">
+          <div class="popup-content-for-error bg-white p-6 rounded-lg relative">
+            <span
+              class="absolute top-2 right-4 cursor-pointer text-xl"
+              onclick="closePopup()"
+              >×</span
+            >
+            <div id="popup-content-for-error"></div>
+          </div>
         </div>
         <div class="full flex justify-center mt-4">
-            <button class="w-8/12 p-1 bg-brightPink text-white hover:bg-pink rounded-xl">Proceed To Pay</button>
+          <button
+            class="w-8/12 p-1 bg-brightPink text-white hover:bg-pink rounded-xl"
+            id="pay"
+            onclick="proceedToPayment()"
+          >
+            Proceed To Pay
+          </button>
         </div>
-        <div class="divider w-9/12  mx-auto  mt-4 mb-8  h-[2px] bg-gray-300"></div>
-        <div class="flex items-center justify-center gap-2 flex-col mt-4 space-x-4">
-            <span>We Accept</span>
-           <div class="flex flex-row w-full justify-center gap-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="h-6 w-auto">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="MasterCard" class="h-6 w-auto">           
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-6 w-auto">
-           </div>
-           
+        <div class="divider w-9/12 mx-auto mt-4 mb-8 h-[2px] bg-gray-300"></div>
+        <div
+          class="flex items-center justify-center gap-2 flex-col mt-4 space-x-4"
+        >
+          <span>We Accept</span>
+          <div class="flex flex-row w-full justify-center gap-4">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg"
+              alt="Visa"
+              class="h-6 w-auto"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg"
+              alt="MasterCard"
+              class="h-6 w-auto"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+              alt="PayPal"
+              class="h-6 w-auto"
+            />
           </div>
-          
+        </div>
       </div>
     </div>
-    <div id="footer-placeholder" class="sticky z-50 top-0 "></div>
-      
+    <div id="footer-placeholder" class="sticky z-50 top-0"></div>
+    <script>
+      let address;
+      // Open Popup
+      function openPopup(type) {
+        const popupOverlay = document.getElementById("popup-overlay");
+        const popupContent = document.getElementById("popup-content");
+
+        if (type === "card") {
+          popupContent.innerHTML = `
+            <form id="payment-form" class="space-y-4 w-full">
+                <h2 class="text-xl font-bold mb-4">Add Card</h2>
+                <div>
+                    <label class="block mb-2">Card Number</label>
+                    <input type="text" class="w-full p-2 border rounded" placeholder="4242 4242 4242 4242" required>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-2">Expiry Date</label>
+                        <input type="text" class="w-full p-2 border rounded" placeholder="MM/YY" required>
+                    </div>
+                    <div>
+                        <label class="block mb-2">CVC</label>
+                        <input type="text" class="w-full p-2 border rounded" placeholder="123" required>
+                    </div>
+                </div>
+                <button onClick='closePopup()' class="w-full bg-brightPink text-white py-3 rounded-lg hover:bg-pink transition">Pay Now</button>
+            </form>
+        `;
+        } else if (type === "address") {
+          popupContent.innerHTML = `
+            <form id="address-form" class="space-y-4 w-full" onsubmit="saveAddress(event)">
+                <h2 class="text-xl font-bold mb-4">Add Address</h2>
+                <div>
+                    <label class="block mb-2">No</label>
+                    <input type="text" id="no" class="w-full p-2 border rounded" placeholder="No" required>
+                </div>
+                <div>
+                    <label class="block mb-2">Street</label>
+                    <input type="text" id="street" class="w-full p-2 border rounded" placeholder="Street" required>
+                </div>
+                <div>
+                    <label class="block mb-2">City</label>
+                    <input type="text" id="city" class="w-full p-2 border rounded" placeholder="City" required>
+                </div>
+                <div>
+                    <label class="block mb-2">Country</label>
+                    <input type="text" id="country" class="w-full p-2 border rounded" placeholder="Country" required>
+                </div>
+                <div>
+                    <label class="block mb-2">Post Code</label>
+                    <input type="text" id="postcode" class="w-full p-2 border rounded" placeholder="Post Code" required>
+                </div>
+                <button type="submit" class="w-full bg-brightPink text-white py-3 rounded-lg hover:bg-pink transition">Add Address</button>
+            </form>
+        `;
+        }
+
+        popupOverlay.classList.remove("hidden");
+      }
+
+      // Close Popup
+      function closePopup() {
+        const popupOverlay = document.getElementById("popup-overlay");
+        popupOverlay.classList.add("hidden");
+        document.getElementById("popup-content").innerHTML = "";
+      }
+      function closePopupError() {
+        const popupOverlay = document.getElementById("popup-overlay-for-error");
+        popupOverlay.classList.add("hidden");
+        document.getElementById("popup-content-for-error").innerHTML = "";
+      }
+
+
+      function loadCartItems() {
+        const cart = JSON.parse(localStorage.getItem("hanasumi_cart") || "{}");
+        const cartContainer = document.getElementById("products");
+
+        cartContainer.innerHTML = Object.entries(cart)
+          .map(([category, categoryData]) =>
+            Object.values(categoryData.items)
+              .map(
+                (item) => `
+                  <div class="w-full flex flex-row gap-4 p-4 ml-4 relative cart-item">
+                      <div class="flex flex-col justify-between w-9/12">
+                          <div>
+                              <h2 class="sub-heading font-lora">${
+                                item.name
+                              }</h2>
+                              <span class="font-poppins text-brightPink caption">
+                                  ${category.replace("-", " ")}
+                              </span>
+                          </div>
+                          <div class="flex w-full justify-between items-center">
+                              <div class="flex gap-2 items-center">
+                                  <span class="quantity">Qty: ${
+                                    item.quantity
+                                  }</span>
+                              </div>
+                              <span class="mr-4">Rs. ${(
+                                item.price * item.quantity
+                              ).toFixed(2)}</span>
+                          </div>
+                      </div>
+                      <span class="remove-item  top-4 right-4 cursor-pointer text-red-500"
+                          data-id="${item.product_id}"
+                          data-category="${category}">x</span>
+                  </div>`
+              )
+              .join("")
+          )
+          .join("");
+
+        document.querySelectorAll(".remove-item").forEach((btn) => {
+          btn.addEventListener("click", removeItem);
+        });
+
+        updateTotals(cart);
+      }
+
+      function updateTotals(cart) {
+        const subtotal = Object.values(cart).reduce((sum, category) => {
+          return (
+            sum +
+            Object.values(category.items).reduce((catSum, item) => {
+              return catSum + item.price * item.quantity;
+            }, 0)
+          );
+        }, 0);
+
+        const discount = 0; // You can update this if needed
+        const total = subtotal - discount;
+
+        // Using querySelector to get elements
+        document.querySelector(
+          "#subtotal-display"
+        ).textContent = `Rs. ${subtotal.toFixed(2)}`;
+        document.querySelector(
+          "#discount-display"
+        ).textContent = `Rs. ${discount.toFixed(2)}`;
+        document.querySelector(
+          "#total-display"
+        ).textContent = `Rs. ${total.toFixed(2)}`;
+      }
+
+      // Global Address Variable
+      let globalAddress = {};
+
+      // Save Address Function
+      function saveAddress(event) {
+        event.preventDefault();
+
+        globalAddress = {
+          no: document.getElementById("no").value,
+          street: document.getElementById("street").value,
+          city: document.getElementById("city").value,
+          country: document.getElementById("country").value,
+          postcode: document.getElementById("postcode").value,
+        };
+
+        console.log("Address JSON:", JSON.stringify(globalAddress));
+        closePopup();
+      }
+
+      // Address Validation Function
+      function validateAddress() {
+        const requiredFields = ["no", "street", "city", "country", "postcode"];
+        for (let field of requiredFields) {
+          if (!globalAddress[field] || globalAddress[field].trim() === "") {
+             showPopup('Please Enter Address');
+            return false;
+          }
+        }
+        return true;
+      }
+
+      // Check Session Function
+      async function checkSession() {
+        try {
+          const response = await fetch(
+            "http://localhost/backend/api/checkAuth",
+            {
+              method: "POST",
+              credentials: "include",
+            }
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            return true;
+          } else {
+            throw new Error("Failed to check session status");
+            return false;
+          }
+        } catch (error) {
+          console.error("Session check failed:", error);
+          return false;
+        }
+      }
+
+      // Proceed to Payment Function
+      async function proceedToPayment() {
+        // Check if user is logged in
+        const isLoggedIn = await checkSession();
+        if (!isLoggedIn) {
+          // Trigger your login popup here
+          showPopup('Please Login');
+          return;
+        }
+
+        // Validate Address
+        if (!validateAddress()) {
+          return;
+        }
+
+        // Prepare Cart Data
+        const cart = JSON.parse(localStorage.getItem("hanasumi_cart") || "{}");
+        let cartItems = Object.entries(cart).flatMap(
+          ([category, categoryData]) =>
+            Object.values(categoryData.items).map((item) => ({
+              product_id: parseInt(item.product_id, 10),
+              name: item.name,
+              price: item.price,
+              quantity: item.quantity,
+              category: category,
+            }))
+        );
+
+        let paymentData = {
+          subtotal: calculateSubtotal(cart),
+          discount: 0,
+          total: calculateSubtotal(cart),
+          cart: cartItems,
+        };
+
+        console.log("Payment Data:", paymentData);
+        console.log(cart);
+
+        try {
+          const response = await fetch(
+            "http://localhost/backend/api/order/make",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                cart: cart,
+                address: globalAddress, // Using the global address here
+              }),
+              credentials: "include",
+            }
+          );
+
+          if (response.ok) {
+            const data = await response.json();
+            console.log("Backend Response:", data);
+            paymentData = {
+              ...paymentData,
+              total: data.total,
+            };
+          } else {
+            const errorData = await response.json();
+            handlePaymentError(errorData.error);
+          }
+        } catch (error) {
+          console.error("Order make failed:", error);
+        }
+
+        sessionStorage.setItem("paymentData", JSON.stringify(paymentData));
+      }
+
+      // Handle Payment Errors Function
+      function handlePaymentError(errorMessage) {
+        let userMessage = "An error occurred. Please try again.";
+        switch (errorMessage) {
+          case "User not logged in":
+          userMessage =
+          "Login in";
+            break;
+          case "Cart is missing or empty.":
+            userMessage =
+              "Your cart is empty. Please add items before proceeding.";
+            break;
+          case "Address is required.":
+            userMessage = "Please enter your address before proceeding.";
+            break;
+          case "User session is missing.":
+            showPopup();
+            break;
+          default:
+            userMessage = errorMessage;
+        }
+        showPopup(userMessage);
+      }
+
+      function calculateSubtotal(cart) {
+        return Object.values(cart).reduce((sum, category) => {
+          return (
+            sum +
+            Object.values(category.items).reduce((catSum, item) => {
+              return catSum + item.price * item.quantity;
+            }, 0)
+          );
+        }, 0);
+      }
+
+      function removeItem(event) {
+        const productId = event.target.getAttribute("data-id");
+        const category = event.target.getAttribute("data-category");
+
+        const cart = JSON.parse(localStorage.getItem("hanasumi_cart") || "{}");
+
+        if (cart[category]?.items[productId]) {
+          delete cart[category].items[productId];
+
+          if (Object.keys(cart[category].items).length === 0) {
+            delete cart[category];
+          }
+        }
+
+        localStorage.setItem("hanasumi_cart", JSON.stringify(cart));
+        loadCartItems();
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        loadCartItems();
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const cart = JSON.parse(localStorage.getItem("hanasumi_cart") || "{}");
+        updateTotals(cart);
+      });
+
+      function showPopup(errorMessage) {
+        // Remove existing popup if any
+        const existingPopup = document.querySelector(".popup-overlay-for-error");
+        if (existingPopup) existingPopup.remove();
+
+        // Create overlay
+        const overlay = document.createElement("div");
+        overlay.className = "popup-overlay-for-error";
+
+        // Create popup content
+        const popup = document.createElement("div");
+        popup.className = "popup-content-for-error";
+
+        // Add product details
+        popup.innerHTML = `
+        <div class="flex flex-col h-full justify-evenly">
+            <div class="bg-white p-6 rounded-lg max-w-sm text-center">
+              <p class="mb-4">${errorMessage}</p>
+            </div>
+            
+            <button class="login-btn-for-error bg-[#d42583] text-white px-6 py-2 rounded-xl mx-auto">
+                Ok
+            </button>
+        </div>
+    `;
+
+        // Add close functionality
+        const shopMoreBtn = popup.querySelector(".login-btn-for-error");
+        shopMoreBtn.addEventListener("click", () => {
+          overlay.remove();
+        });
+
+        // Auto-remove after 3 seconds
+        setTimeout(() => {
+          overlay.style.animation = "fadeOut 0.3s ease-out";
+          setTimeout(() => overlay.remove(), 290);
+        }, 4700);
+
+        // Add to DOM
+        overlay.appendChild(popup);
+        document.body.appendChild(overlay);
+      }
+    </script>
   </body>
+  <style>
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content {
+      max-width: 90%;
+      width: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .popup-overlay-for-error {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .popup-content-for-error {
+      max-width: 90%;
+      width: 400px;
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+
+    .popup-flower {
+      position: absolute;
+      bottom: -4rem;
+      right: -5rem;
+      width: 15rem;
+      opacity: 0.8;
+    }
+    .popup-flower1 {
+      position: absolute;
+      top: -3.5rem;
+      left: -3.5rem;
+      width: 10rem;
+      opacity: 0.8;
+    }
+  </style>
 </html>

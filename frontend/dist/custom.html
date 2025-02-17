@@ -1,283 +1,363 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Bouquets</title>
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script> 
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="./index.js"></script>
-    <link href="./output.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_bag" />
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_bag"
+    />
     <style>
-        #custom-home {
-            background-image: url(flower-background/beach-1854076_1920.jpg);
-            background-size: cover;
-            background-position-y: 70%;
-        }
-        #product-idea {
-            
-            transition: transform 0.2s ease-in-out;
-            overflow: hidden;
-            position: relative; /* Ensures absolute positioning for child elements */
-        }
+      #custom-home {
+        background-image: url(flower-background/beach-1854076_1920.jpg);
+        background-size: cover;
+        background-position-y: 70%;
+      }
+      #product-idea {
+        transition: transform 0.2s ease-in-out;
+        overflow: hidden;
+        position: relative; /* Ensures absolute positioning for child elements */
+      }
 
-        .flower {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0;
-            animation: popInAndFall 2s ease-in-out forwards;
-        }
+      .flower {
+        position: absolute;
+        pointer-events: none;
+        opacity: 0;
+        animation: popInAndFall 2s ease-in-out forwards;
+      }
 
-        @keyframes popInAndFall {
-            0% {
-                transform: scale(0);
-                opacity: 1;
-            }
-            40% {
-                transform: scale(1);
-            }
-            100% {
-                transform: translateY(100px);
-                opacity: 0;
-            }
+      @keyframes popInAndFall {
+        0% {
+          transform: scale(0);
+          opacity: 1;
         }
+        40% {
+          transform: scale(1);
+        }
+        100% {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+      }
     </style>
-    <script>
-        const items = {
-    products: [
-        {
-            type: "Roses",
-            name: "Hanasumi Speacial Rose",
-            price: 1750.0,
-            color: "white mixed pinkish",
-            image: "custom-items/r1.webp", // Example image
-        },
-        {
-            type: "Roses",
-            name: "Pure Pink Rose",
-            price: 1000.0,
-            color: "pure pink",
-            image: "custom-items/r2.webp", // Example image
-        },
-        {
-            type: "Roses",
-            name: "Yellow Rose",
-            price: 750.0,
-            color: "pure yellow",
-            image: "custom-items/r3.webp", // Example image
-        },
-        {
-            type: "Roses",
-            name: "Light Pink Rose",
-            price: 750.0,
-            color: "Light pinkish",
-            image: "custom-items/r4.jpg", // Example image
-        },
-        {
-            type: "Roses",
-            name: "White Rose",
-            price: 850.0,
-            color: "Pure white",
-            image: "custom-items/r5.jpg", // Example image
-        },
-        {
-            type: "Dailia",
-            name: "Dailia",
-            price: 550.0,
-            color: "white",
-            image: "custom-items/d1.webp", // Example image
-        },
-        {
-            type: "Dailia",
-            name: "Dailia",
-            price: 900.0,
-            color: "deep yellow",
-            image: "custom-items/d2.webp", // Example image
-        },
-        {
-            type: "Lilly",
-            name: "Lilly",
-            price: 1200,
-            color: "white mixed yellow",
-            image: "custom-items/f1.webp", // Example image
-        },
-        {
-            type: "Wrap Paper",
-            name: "Elephant Poo Paper",
-            price: "3000/piece",
-            image: "custom-items/p2.webp", // Example image
-        },
-        {
-            type: "Wrap Paper",
-            name: "Silky Paper",
-            price: "350/piece",
-            image: "custom-items/p3.jpg", // Example image
-        },
-        {
-            type: "Wrap Paper",
-            name: "Shredded Brown Paper",
-            price: "550/piece",
-            image: "custom-items/p1.webp", // Example image
-        },
-    ],
-};
-
-// Function to fetch and display products
-function renderProducts() {
-    const container = document.getElementById("products");
-
-    if (!container) {
-        console.error("Container element with ID 'products' not found.");
-        return;
-    }
-
-    // Loop through the products and generate HTML for each
-    items.products.forEach((item) => {
-        // Handle missing fields gracefully
-        const { type = "Unknown Type", name = "Unknown Name", price = "N/A", image = "custom-items/placeholder.jpg" } = item;
-
-        const productHTML = `
-            <div class="item1 relative w-[300px] transition -z-50 duration-1000  p-4 m-2 ">
-                <img src="${image}" alt="${name}" class="item w-[300px] h-[300px] object-cover rounded">
-                <hr>
-                <div id="text-product" class="">
-                    <h1 class="font-lora text-gray-500 mt-4 text-lg">${name}</h1>
-                    <p class="text-gray-500 text-sm">${type}</p>
-                </div>
-                <hr>
-                <div class="mt-4 w-full flex flex-row justify-between items-center">
-                    
-                    <span id="price" class="font-poppins text-gray-800 text-lg">Rs. ${price}</span>
-                    <div class="flex flex-row gap-4 items-center">
-                        <span class="font-quicksand text-sm text-brightPink">1</span>
-                        <button type="button" id="increment-button" data-input-counter-increment="counter-input" class="flex-shrink-0 border-brightPink hover:bg-brightPink inline-flex items-center justify-center border border-gray-300 rounded-md h-5 w-5 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
-                            <svg class="w-2.5 h-2.5 dark:text-brightPink " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
-                            </svg>
-                        </button>
-                        <span class="material-symbols-outlined ml-4 p-1 mt-1 rounded-full bg-pink cursor-pointer">
-                            shopping_bag
-                        </span>
-                    </div>
-                </div>
-            </div>
-        `;
-
-        // Append the product's HTML to the container
-        container.insertAdjacentHTML("beforeend", productHTML);
-    });
-}
-
-// Wait for the DOM to load before calling renderProducts
-document.addEventListener("DOMContentLoaded", renderProducts);
-
-    </script>
-</head>
-<body>
-    <div id="custom-home" class="flex items-center justify-center w-full h-[50vh] m-0">
-        <div id="home-text" class="backdrop-brightness-150 text-white bg-[#d42583] bg-opacity-55 p-12 rounded">
-            <h1 class="font-poppins tracking-widest">Customized Bouquets</h1>
-        </div>
+  </head>
+  <body>
+    <div
+      id="custom-home"
+      class="flex items-center justify-center w-full h-[50vh] m-0"
+    >
+      <div
+        id="home-text"
+        class="backdrop-brightness-150 text-white bg-[#d42583] bg-opacity-55 p-12 rounded"
+      >
+        <h1 class="font-poppins tracking-widest">Customized Bouquets</h1>
+      </div>
     </div>
     <div id="navbar-placeholder" class="sticky z-50 top-0"></div>
     <div class="flex justify-center h-half w-full">
-        <div id="product-idea" class="text-center w-full  h-full  mt-4 p-8 ">
-            
-            <h1 class="heading font-luxurious text-brightPink font-bold z-50">Make Your Own Bouquet</h1>
-            <div class="flex w-full justify-center">
-                <p class=" w-8/12 font-lora">Design your perfect floral arrangement with our luxurious Make Your Own Bouquet service. Choose from a curated selection of premium blooms and create a bespoke masterpiece that reflects your style and sentiment.
-                    <span class="font-luxurious text-brightPink sub-heading ">Craft beauty. Celebrate uniquely.</span></p>
-            </div>
+      <div id="product-idea" class="text-center w-full h-full mt-4 p-8">
+        <h1 class="heading font-luxurious text-brightPink font-bold z-50">
+          Make Your Own Bouquet
+        </h1>
+        <div class="flex w-full justify-center">
+          <p class="w-8/12 font-lora">
+            Design your perfect floral arrangement with our luxurious Make Your
+            Own Bouquet service. Choose from a curated selection of premium
+            blooms and create a bespoke masterpiece that reflects your style and
+            sentiment.
+            <span class="font-luxurious text-brightPink sub-heading"
+              >Craft beauty. Celebrate uniquely.</span
+            >
+          </p>
         </div>
+      </div>
     </div>
     <div class="grid h-screen grid-cols-12">
-        <div class="col-span-8  text-white overflow-y-scroll h-screen  [&::-webkit-scrollbar]:w-1
-        [&::-webkit-scrollbar-track]:rounded-full
-        [&::-webkit-scrollbar-track]:bg-gray-100
-        [&::-webkit-scrollbar-thumb]:rounded-full
-        [&::-webkit-scrollbar-thumb]:bg-gray-300
-        dark:[&::-webkit-scrollbar-track]:bg-neutral-200
-        dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
-            <main id="products-main" class="flex justify-center w-full"> 
-                <div id="products" class="flex flex-wrap justify-center gap-8 p-12 mb-8"></div>
-            </main>
+      <div
+        class="col-span-8 text-white overflow-y-scroll h-screen [&::-webkit-scrollbar]:w-1 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-200 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500"
+      >
+        <main id="products-main" class="flex justify-center w-full">
+          <div
+            id="products"
+            class="flex flex-wrap justify-center gap-8 p-12 mb-8"
+          ></div>
+        </main>
+      </div>
+
+      <div class="col-span-4 h-screen sticky top-0">
+        <h1 class="font-lora sub-heading text-center">Your Cart</h1>
+        <div class="p-4">
+          <div id="cart-items"></div>
+          <hr class="h-2" />
+          <div class="w-full mb-4 flex justify-evenly">
+            <span class="w-8/12 font-lora caption font-bold text-pink"
+              >Sub Total</span
+            >
+            <span id="cart-subtotal" class="w-3/12">Rs. 0.00</span>
+          </div>
+          <button
+            id="proceed-to-cart"
+            class="flex justify-center gap-2 items-center p-1 w-full rounded-xl text-white hover:bg-brightPink bg-lightPink transition"
+          >
+            Proceed To Cart
+            <span class="material-symbols-outlined">shopping_bag</span>
+          </button>
         </div>
-    
-        <div class="col-span-4  h-screen sticky top-0">
-           <h1 class="font-lora sub-heading text-center">Your Cart..</h1>
-           <div class="p-4 ">
-            <div class="w-full mb-4 flex ">
-                <span class="w-8/12">White rose</span><span class="w-2/12">1</span> <span class="w-2/12">850</span>
-            </div>
-            <div class="w-full mb-4 flex justify-evenly ">
-                <span class="w-8/12">Red rose</span><span class="w-2/12">1</span><span class="w-2/12">750</span>
-            </div> 
-            <div class="w-full mb-4 flex justify-evenly ">
-                <span class="w-8/12">Yellow rose</span><span class="w-2/12">1</span> <span class="w-2/12">750</span>
-            </div>
-            <hr class="h-2">
-            <div class="w-full mb-4 flex justify-evenly ">
-                <span class="w-8/12 font-lora caption font-bold text-pink">Sub Total</span><span class="w-3/12 ">Rs. 2350.00</span>
-            </div>
-            <button class="flex justify-center gap-2  items-center p-1 w-full rounded-xl text-white hover:bg-brightPink bg-lightPink transition">Proceed To Cart <span class="material-symbols-outlined">
-                shopping_bag
-            </span></button>
-        </div>
-        </div>
+      </div>
     </div>
-    <img src="animation/cherry-blossom-svgrepo-com.svg" id="flower-template-1" class="hidden" alt="Cherry Blossom">
-    <img src="animation/sakuraalarge.svg" id="flower-template-2" class="hidden" alt="Sakura Flower">
-    <div id="footer-placeholder" class="sticky w-full z-50 top-0 "></div>
-</body>
-<script>
-    // Select the product idea div
-    const productIdea = document.querySelector("#product-idea");
+    <img
+      src="animation/cherry-blossom-svgrepo-com.svg"
+      id="flower-template-1"
+      class="hidden"
+      alt="Cherry Blossom"
+    />
+    <img
+      src="animation/sakuraalarge.svg"
+      id="flower-template-2"
+      class="hidden"
+      alt="Sakura Flower"
+    />
+    <div id="footer-placeholder" class="sticky w-full z-50 top-0"></div>
+  </body>
+  <script>
+    const container = document.getElementById("products");
 
-    let lastTime = 0; // To control the animation frequency
+  // Temporary storage for custom bouquet items
+    let customBouquetItems = {};
 
-    // Function to create a new flower element
-    const createFlower = (x, y) => {
-        // Randomly select one of the two flower templates
-        const randomFlowerId = Math.random() > 0.5 ? "#flower-template-1" : "#flower-template-2";
-        const flowerTemplate = document.querySelector(randomFlowerId);
+  // Fetch products from the API
+  async function fetchProducts() {
+    try {
+      const response = await fetch(
+        "http://localhost/backend/api/product/custom"
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      const products = Array.isArray(data) ? data : data.products || [];
+      renderProducts(products);
+    } catch (error) {
+      console.error("Fetch error:", error);
+      container.innerHTML = `<p class="text-red-500">Error loading products: ${error.message}</p>`;
+    }
+  }
 
-        // Clone the selected flower image
-        const flower = document.createElement("img");
-        flower.src = flowerTemplate.src;
-        flower.alt = flowerTemplate.alt;
+  // Render products on the page
+  function renderProducts(products) {
+    container.innerHTML = products
+      .map(
+        (product) => `
+              <div class="item1 relative w-[300px] text-gray-500 p-4 border" 
+                    data-id="${product.id}" 
+                    data-name="${product.name}" 
+                    data-price="${product.price}">
+                  <img src="${product.image}" class="item w-[300px] h-[300px] object-cover">
+                  <hr>
+                  <h1 class="font-lora mt-4">${product.name}</h1>
+                  <hr>
+                  <div class="mt-4 flex justify-between items-center">
+                      <span>Rs.</span><span class="price font-poppins">${product.price}</span>
+                      <div class="flex gap-2">
+                          <button class="border px-2 decrement">-</button>
+                          <span class="qty-span">1</span>
+                          <button class="border px-2 increment">+</button>
+                          <button class="bg-blue-500 text-white px-4 py-1 add-to-cart">🛒</button>
+                      </div>
+                  </div>
+              </div>
+          `
+      )
+      .join("");
+    attachEventListeners();
+  }
 
-        // Randomize size and rotation
-        const size = Math.random() * 20 + 30; // Random size between 30px and 50px
-        const rotation = Math.random() * 360; // Random rotation
+  // Attach event listeners to buttons
+  function attachEventListeners() {
+    // Increment quantity
+    document.querySelectorAll(".increment").forEach((button) => {
+      button.addEventListener("click", function () {
+        let qtySpan = this.previousElementSibling;
+        let qty = parseInt(qtySpan.textContent);
+        qtySpan.textContent = qty + 1;
+      });
+    });
 
-        // Set flower styles
-        flower.classList.add("flower");
-        flower.style.width = `${size}px`;
-        flower.style.height = `${size}px`;
-        flower.style.left = `${x - size / 2}px`;
-        flower.style.top = `${y - size / 2}px`;
-        flower.style.transform = `rotate(${rotation}deg)`;
+    // Decrement quantity
+    document.querySelectorAll(".decrement").forEach((button) => {
+      button.addEventListener("click", function () {
+        let qtySpan = this.nextElementSibling;
+        let qty = parseInt(qtySpan.textContent);
+        if (qty > 1) {
+          qtySpan.textContent = qty - 1;
+        }
+      });
+    });
 
-        // Append the flower to the product idea div
-        productIdea.appendChild(flower);
+    // Add to custom bouquet
+    document.querySelectorAll(".add-to-cart").forEach((button) => {
+      button.addEventListener("click", function () {
+        const productElement = this.closest(".item1");
+        const product = {
+          id: productElement.dataset.id,
+          name: productElement.dataset.name,
+          price: parseFloat(productElement.dataset.price),
+          quantity: parseInt(
+            productElement.querySelector(".qty-span").textContent
+          ),
+        };
+        addToCustomBouquet(product);
+      });
+    });
+  }
 
-        // Remove the flower after animation completes
-        flower.addEventListener("animationend", () => flower.remove());
+  // Add item to custom bouquet (temporary storage)
+  function addToCustomBouquet(product) {
+    if (customBouquetItems[product.id]) {
+      customBouquetItems[product.id].quantity += product.quantity;
+    } else {
+      customBouquetItems[product.id] = {
+        product_id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: product.quantity,
+      };
+    }
+    updateCustomCartDisplay(); // Update the custom cart display
+  }
+
+  // Update custom cart display
+  function updateCustomCartDisplay() {
+    const cartItemsContainer = document.getElementById("cart-items");
+    const cartSubtotal = document.getElementById("cart-subtotal");
+    cartItemsContainer.innerHTML = "";
+    let subtotal = 0;
+
+    // Display items in custom bouquet
+    Object.values(customBouquetItems).forEach((item) => {
+      subtotal += item.price * item.quantity;
+      const itemElement = document.createElement("div");
+      itemElement.classList.add(
+        "flex",
+        "justify-between",
+        "items-center",
+        "mb-2"
+      );
+      itemElement.innerHTML = `
+              <p>${item.name} - Rs. ${item.price} x ${item.quantity}</p>
+              <span class="remove-item cursor-pointer text-red-500" data-id="${item.product_id}">x</span>
+          `;
+      cartItemsContainer.appendChild(itemElement);
+    });
+
+    // Update subtotal
+    cartSubtotal.textContent = `Rs. ${subtotal.toFixed(2)}`;
+
+    // Attach event listeners to remove buttons
+    document.querySelectorAll(".remove-item").forEach((button) => {
+      button.addEventListener("click", function () {
+        const productId = this.getAttribute("data-id");
+        removeFromCustomBouquet(productId);
+      });
+    });
+  }
+
+  // Remove item from custom bouquet
+  function removeFromCustomBouquet(productId) {
+    if (customBouquetItems[productId]) {
+      delete customBouquetItems[productId];
+      updateCustomCartDisplay(); // Refresh the display
+    }
+  }
+
+  // Proceed to Cart (save custom bouquet to localStorage)
+  // Proceed to Cart (save custom bouquet to localStorage)
+  function proceedToCart() {
+    const cart = JSON.parse(localStorage.getItem("hanasumi_cart") || "{}");
+
+    // Initialize custom-bouquet if not exists
+    if (!cart["custom-bouquet"]) {
+      cart["custom-bouquet"] = {
+        subtotal: 0,
+        items: {},
+      };
+    }
+
+    // Initialize items object if not exists
+    if (!cart["custom-bouquet"].items) {
+      cart["custom-bouquet"].items = {};
+    }
+
+    // Add all custom items to the cart
+    Object.values(customBouquetItems).forEach((item) => {
+      const productId = String(item.product_id); // Convert to string
+
+      if (cart["custom-bouquet"].items[productId]) {
+        cart["custom-bouquet"].items[productId].quantity += item.quantity;
+      } else {
+        cart["custom-bouquet"].items[productId] = item;
+      }
+      cart["custom-bouquet"].subtotal += item.price * item.quantity;
+    });
+
+      // Save to localStorage
+      localStorage.setItem("hanasumi_cart", JSON.stringify(cart));
+
+      // Reset custom bouquet
+      customBouquetItems = {};
+      updateCustomCartDisplay(); // Clear the display
+      alert("Custom bouquet added to cart!");
+    }
+
+    // Initialize the page
+    window.onload = () => {
+      fetchProducts();
+      updateCustomCartDisplay(); // Load cart items on page load
     };
 
-    // Add hover event listeners to the product-idea div
+    // Add event listener for "Proceed to Cart" button
+    document
+      .getElementById("proceed-to-cart")
+      .addEventListener("click", proceedToCart);
+  </script>
+  <script>
+    // Flower animation script
+    const productIdea = document.querySelector("#product-idea");
+    let lastTime = 0;
+
+    const createFlower = (x, y) => {
+      const randomFlowerId =
+        Math.random() > 0.5 ? "#flower-template-1" : "#flower-template-2";
+      const flowerTemplate = document.querySelector(randomFlowerId);
+      const flower = document.createElement("img");
+      flower.src = flowerTemplate.src;
+      flower.alt = flowerTemplate.alt;
+      const size = Math.random() * 20 + 30;
+      const rotation = Math.random() * 360;
+      flower.classList.add("flower");
+      flower.style.width = `${size}px`;
+      flower.style.height = `${size}px`;
+      flower.style.left = `${x - size / 2}px`;
+      flower.style.top = `${y - size / 2}px`;
+      flower.style.transform = `rotate(${rotation}deg)`;
+      productIdea.appendChild(flower);
+      flower.addEventListener("animationend", () => flower.remove());
+    };
+
     productIdea.addEventListener("mousemove", (e) => {
-        const now = Date.now();
-        if (now - lastTime > 100) { // Limit flower creation to once every 100ms
-            lastTime = now;
-
-            const rect = productIdea.getBoundingClientRect();
-            const x = e.clientX - rect.left; // X relative to the product-idea div
-            const y = e.clientY - rect.top;  // Y relative to the product-idea div
-
-            createFlower(x, y);
-        }
+      const now = Date.now();
+      if (now - lastTime > 100) {
+        lastTime = now;
+        const rect = productIdea.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        createFlower(x, y);
+      }
     });
-</script>
+  </script>
 </html>

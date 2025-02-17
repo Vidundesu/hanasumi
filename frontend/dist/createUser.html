@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <script src="index.js"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+
+</head>
+<body class="bg-gray-50 h-dvh flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-md w-6/12">
+       
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-brightPink">Create Account</h1>
+            <p class="text-gray-500 mt-2">Join our community today</p>
+        </div>
+
+      
+        <form class="space-y-4">
+            <div id="error-message" class="text-red-500 text-sm mb-4 text-center"></div>
+           
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                    <input 
+                        type="text" 
+                        id="firstName"
+                        name="firstName"
+                        required
+                        class="w-full p-1 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="John">
+                </div>
+                <div>
+                    <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                    <input 
+                        type="text" 
+                        id="lastName"
+                        name="lastName"
+                        required
+                        class="w-full p-1 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Doe">
+                </div>
+            </div>
+
+          
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    required
+                    class="w-full p-1 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="john@example.com">
+            </div>
+
+          
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                <input 
+                    type="text" 
+                    id="username"
+                    name="username"
+                    required
+                    minlength="4"
+                    class="w-full p-1 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="johndoe123">
+            </div>
+
+           
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                <input 
+                    type="password" 
+                    id="password"
+                    name="password"
+                    required
+                    minlength="8"
+                    class="w-full p-1 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="••••••••">
+            </div>
+
+          
+            <div>
+                <label for="confirmPassword" class="block text-sm font-medium text-gray-700 mb-1">Confirm Password</label>
+                <input 
+                    type="password" 
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    required
+                    minlength="8"
+                    class="w-full p-1 border border-gray-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder="••••••••">
+            </div>
+
+           
+            <div class="flex items-center">
+                <input 
+                    type="checkbox" 
+                    id="terms"
+                    required
+                    class="h-4 w-4 text-brightPink focus:ring-blue-500 border-gray-300 rounded">
+                <label for="terms" class="ml-2 text-sm text-gray-600">
+                    I agree to the <a href="#" class="text-brightPink hover:text-blue-800">Terms of Service</a> and <a href="#" class="text-brightPink hover:text-blue-800">Privacy Policy</a>
+                </label>
+            </div>
+
+          
+            <button 
+                type="submit"
+                class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Create Account
+            </button>
+
+            <!-- Login Link -->
+            <div class="text-center text-sm text-gray-600">
+                Already have an account? 
+                <a href="login.html" class="text-brightPink hover:text-blue-800 font-medium">Log in</a>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Get form elements
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const errorContainer = document.getElementById('error-message') || createErrorContainer();
+    
+        // Get form values
+        const formData = {
+            firstName: form.firstName.value.trim(),
+            lastName: form.lastName.value.trim(),
+            email: form.email.value.trim(),
+            username: form.username.value.trim(),
+            password: form.password.value.trim(),
+            confirmPassword: form.confirmPassword.value.trim(),
+            terms: form.terms.checked
+        };
+    
+        // Validation
+        if (formData.password !== formData.confirmPassword) {
+            showError('Passwords do not match');
+            return;
+        }
+    
+        if (!formData.terms) {
+            showError('You must agree to the terms and conditions');
+            return;
+        }
+    
+        try {
+            // Disable button during request
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'Creating Account...';
+    
+            const response = await fetch('http://localhost/backend/api/registerUser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    fname: formData.firstName,
+                    lname: formData.lastName,
+                    email: formData.email,
+                    username: formData.username,
+                    password: formData.password
+                })
+            });
+    
+            const data = await response.json();
+    
+            if (!response.ok) {
+                throw new Error(data.error || 'Registration failed');
+            }
+    
+            // Registration successful
+            window.location.href = 'login.html'; // Redirect to login
+    
+        } catch (error) {
+            showError(error.message || 'An error occurred during registration');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Create Account';
+        }
+    
+        function showError(message) {
+            if (!errorContainer) {
+                const container = document.createElement('div');
+                container.id = 'error-message';
+                container.className = 'text-red-500 text-sm mb-4 text-center';
+                form.prepend(container);
+            }
+            errorContainer.textContent = message;
+        }
+    
+        function createErrorContainer() {
+            const errorDiv = document.createElement('div');
+            errorDiv.id = 'error-message';
+            errorDiv.className = 'text-red-500 text-sm mb-4 text-center';
+            form.insertBefore(errorDiv, form.firstChild);
+            return errorDiv;
+        }
+    });
+    </script>
+</html>

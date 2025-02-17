@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment - Hanasumi</title>
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="./index.js"></script>
+    <link href="./output.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=shopping_bag"
+    />
+</head>
+<body class="bg-white">
+    <h1 class="heading p-4 font-luxurious font-bold mb-6">Payment Details</h1>
+    <div class="w-full h-dvh flex gap-4 mx-auto p-8">
+        <form id="payment-form" class="space-y-4 w-8/12">
+            <div>
+                <label class="block mb-2">Card Number</label>
+                <input type="text" class="w-full p-2 border rounded" placeholder="4242 4242 4242 4242" required>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block mb-2">Expiry Date</label>
+                    <input type="text" class="w-full p-2 border rounded" placeholder="MM/YY" required>
+                </div>
+                <div>
+                    <label class="block mb-2">CVC</label>
+                    <input type="text" class="w-full p-2 border rounded" placeholder="123" required>
+                </div>
+            </div>
+
+            <button type="submit" class="w-full bg-brightPink text-white py-3 rounded-lg hover:bg-pink transition">
+                Pay Now
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
