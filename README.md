@@ -20,13 +20,22 @@ The application is built using a **4-Tier Architecture**:
 ## 📂 File Structure
 
 FloralShop/ 
+
+
 │── API/ 
+
 ├─── index.php  
+
 │── APP/ 
+
 ├─── Configs/ 
+
 ├─── Core/
+
 ├─── Services/  
+
 ├─── Controllers/
+
 
 ## ⚙️Custom Router Config
 ```php
