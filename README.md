@@ -53,14 +53,19 @@ public function run() {
     echo json_encode(["error" => "Route not found"]);
 }
 ```
+---
 
 ##🔨 Technologies Used
+
 -Tailwind CSS
 -PHP, REST APIs
 -MYSQL
 -XAMP
 
+---
+
 ##📃License
+
 © 2025 | Vidundesu. All rights reserved.
 
 
