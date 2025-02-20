@@ -129,14 +129,14 @@
               <tbody class="divide-y divide-gray-200">
                 <!-- Sample Data -->
                 <tr>
-                  <td class="px-6 py-4">#1234</td>
-                  <td class="px-6 py-4">Jane Smith</td>
-                  <td class="px-6 py-4">2023-09-16</td>
+                  <td class="px-6 py-4">-</td>
+                  <td class="px-6 py-4">-</td>
+                  <td class="px-6 py-4">-</td>
                   <td class="px-6 py-4">
                     <span
                       class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
                     >
-                      Delivered
+                      0
                     </span>
                   </td>
                 </tr>
@@ -167,7 +167,7 @@
                   <th
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
                   >
-                    Contact
+                    City
                   </th>
                   <th
                     class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"
@@ -245,9 +245,9 @@
               </thead>
               <tbody class="divide-y divide-gray-200" id="productsList">
                 <tr>
-                  <td class="px-6 py-4">Sample Product</td>
-                  <td class="px-6 py-4">$49.99</td>
-                  <td class="px-6 py-4">100</td>
+                  <td class="px-6 py-4"></td>
+                  <td class="px-6 py-4"></td>
+                  <td class="px-6 py-4"></td>
                   <td class="px-6 py-4">
                     <button class="text-red-500 hover:text-red-700">
                       Delete
@@ -291,7 +291,7 @@
               <tbody class="divide-y divide-gray-200">
                 <tr>
                   <td class="px-6 py-4">2023-09-20 14:30:00</td>
-                  <td class="px-6 py-4">admin@example.com</td>
+                  <td class="px-6 py-4">aproductin@example.com</td>
                   <td class="px-6 py-4">Product Added</td>
                   <td class="px-6 py-4">Added new product "Sample Product"</td>
                 </tr>
@@ -382,23 +382,27 @@
 
       async function loadDeliveryMen() {
         try {
-          const response = await fetch("/backend/api/admin/delivery-men");
-          const deliveryMen = await response.json();
+          const response = await fetch("http://localhost/backend/api/admin/deliver/staff",
+          {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include",
+            }
+          );
+          const result = await response.json();
+          const deliveryMen = result.data
 
           const tbody = document.querySelector("#deliveryMenList");
           tbody.innerHTML = deliveryMen
             .map(
-              (dm) => `
+              (product) => `
                     <tr>
-                        <td class="px-6 py-4">${dm.name}</td>
-                        <td class="px-6 py-4">${dm.email}</td>
+                        <td class="px-6 py-4">${product.fname} ${product.lname}</td>
+                        <td class="px-6 py-4">${product.city}</td>
                         <td class="px-6 py-4">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                              dm.status === "Active"
-                                ? "bg-green-100 text-green-800"
-                                : "bg-red-100 text-red-800"
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full 
                             }">
-                                ${dm.status}
+                                active
                             </span>
                         </td>
                         <td class="px-6 py-4">
@@ -412,7 +416,37 @@
           console.error("Error loading delivery men:", error);
         }
       }
+      async function loadProducts() {
+        try {
+          const response = await fetch("http://localhost/backend/api/admin/products/all",
+          {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              credentials: "include",
+            }
+          );
+          const result = await response.json();
+          const products = result.data
 
+          const tbody = document.querySelector("#productsList");
+          tbody.innerHTML = products
+            .map(
+              (product) => `
+                    <tr>
+                        <td class="px-6 py-4">${product.name}</td>
+                        <td class="px-6 py-4">${product.price}</td>
+                        <td class="px-6 py-4">${product.product_type}</td>
+                        <td class="px-6 py-4">
+                            <button onclick="deleteDeliveryMan(this)" class="text-red-500 hover:text-red-700">Delete</button>
+                        </td>
+                    </tr>
+                `
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error loading products:", error);
+        }
+      }
       function updateSalesChart(monthlySales) {
         const ctx = document.getElementById("salesChart").getContext("2d");
 
@@ -471,6 +505,9 @@
               break;
             case "delivery-men":
               loadDeliveryMen();
+              break;
+            case "products":
+              loadProducts();
               break;
             // Add cases for other pages as needed
           }

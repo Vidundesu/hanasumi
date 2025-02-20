@@ -378,12 +378,14 @@
           if (response.ok) {
             const data = await response.json();
             console.log("Backend Response:", data);
+            showPopup('Thank You For shopping with us!');
             paymentData = {
               ...paymentData,
               total: data.total,
             };
           } else {
             const errorData = await response.json();
+            showPopup(errorData);
             handlePaymentError(errorData.error);
           }
         } catch (error) {
